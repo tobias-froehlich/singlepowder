@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/froehlich/singlepowder/src/singlepowder.cpp
+iostream
+-
+singlepowderConfig.h
+/home/froehlich/singlepowder/src/singlepowderConfig.h
+
+singlepowderConfig.h
+

@@ -1,0 +1,25 @@
+#ifndef UTILS_H_
+#define UTILS_H_
+
+namespace utils {
+  std::vector< std::string > split(std::string str, char delimiter) {
+    std::vector< std::string > words{};
+    std::string word = "";
+    for (char& c : str) {
+      if (c != delimiter) {
+        word.append(1, c);
+      }
+      else if (word.size() > 0) {
+        words.push_back(word);
+        word = "";
+      }
+    }
+    if (word.size() > 0) {
+      words.push_back(word);
+      word = "";
+    }
+    return words;
+  }
+}
+
+#endif
