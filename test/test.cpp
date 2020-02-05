@@ -114,6 +114,8 @@ TEST(Parameters, small_functions) {
   ASSERT_THROW(parameters->get_parametername(line), std::invalid_argument);
   line = "hallo 1.257";
   ASSERT_EQ(parameters->get_parametername(line), "hallo");
+  line = "hallo 1.257 # comment";
+  ASSERT_EQ(parameters->get_parametername(line), "hallo");
   line = "hallo abc";
   ASSERT_THROW(parameters->read_float_parameter(line), std::invalid_argument);
   line = "hallo 1.257";

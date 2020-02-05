@@ -22,7 +22,7 @@ std::string Parameters::remove_comment(std::string line) {
 
 std::string Parameters::get_parametername(std::string line) {
   std::vector< std::string > words{};
-  words = utils::split(line, ' ');
+  words = utils::split(remove_comment(line), ' ');
   if (words.size() != 2) {
     throw std::invalid_argument("Line with parameter must consist of exactly 2 words");
   }
@@ -79,18 +79,21 @@ void Parameters::read_file(std::string filename) {
   }
 
   while (getline(reader, line)) {
-    parametername = get_parametername(line);
-    if (parametername == "pixel_width") {
-      zPixelWidth = read_float_parameter(line);
-    }
-    else if (parametername == "pixel_height") {
-      zPixelHeight = read_float_parameter(line);
-    }
-    else if (parametername == "image_list_filename") {
-      zImageListFilename = read_str_parameter(line);
-    }
-    else if (parametername == "detector_distance") {
-      zDetectorDistance = read_float_parameter(line);
+    // Empty lines and lines with comment only are ignored.
+    if ((utils::split(remove_comment(line), ' ')).size() > 0) {
+      parametername = get_parametername(line);
+      if (parametername == "pixel_width") {
+        zPixelWidth = read_float_parameter(line);
+      }
+      else if (parametername == "pixel_height") {
+        zPixelHeight = read_float_parameter(line);
+      }
+      else if (parametername == "image_list_filename") {
+        zImageListFilename = read_str_parameter(line);
+      }
+      else if (parametername == "detector_distance") {
+        zDetectorDistance = read_float_parameter(line);
+      }
     }
   }
 }

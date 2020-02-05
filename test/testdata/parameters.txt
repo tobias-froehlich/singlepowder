@@ -1,4 +1,7 @@
+# line with only comment
+
 pixel_width           0.120
 pixel_height          0.120
-image_list_filename   images.txt
+
+image_list_filename   images.txt # list of images
 detector_distance     80.0
