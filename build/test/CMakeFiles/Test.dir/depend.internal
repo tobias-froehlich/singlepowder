@@ -5,8 +5,17 @@ test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o
  /home/froehlich/singlepowder/src/DetectorImage.cpp
  /home/froehlich/singlepowder/src/DetectorImage.h
  /home/froehlich/singlepowder/src/utils.h
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o
+ /home/froehlich/singlepowder/src/Parameters.cpp
+ /home/froehlich/singlepowder/src/Parameters.h
+ /home/froehlich/singlepowder/src/const.cpp
+ /home/froehlich/singlepowder/src/utils.h
+test/CMakeFiles/Test.dir/__/src/utils.cpp.o
+ /home/froehlich/singlepowder/src/utils.cpp
+ /home/froehlich/singlepowder/src/utils.h
 test/CMakeFiles/Test.dir/test.cpp.o
  /home/froehlich/singlepowder/src/DetectorImage.h
- /home/froehlich/singlepowder/src/utils.cpp
+ /home/froehlich/singlepowder/src/Parameters.h
+ /home/froehlich/singlepowder/src/const.cpp
  /home/froehlich/singlepowder/src/utils.h
  /home/froehlich/singlepowder/test/test.cpp

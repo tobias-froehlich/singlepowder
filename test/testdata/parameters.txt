@@ -1,0 +1,4 @@
+pixel_width           0.120
+pixel_height          0.120
+image_list_filename   images.txt
+detector_distance     80.0

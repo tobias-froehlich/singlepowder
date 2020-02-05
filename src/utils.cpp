@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include "utils.h"
@@ -21,3 +22,46 @@ std::vector< std::string > utils::split(std::string str, char delimiter) {
     }
     return words;
 }
+
+std::vector< std::string > utils::split_equal(std::string str, int size) {
+  std::string word = "";
+  std::vector< std::string > words{};
+  int i = 0;
+
+  for (char& c : str) {
+    i += 1;  
+    word.append(1, c);
+    if ((i % size) == 0) {
+      words.push_back(word);
+      word = "";
+    }
+  }
+  if (word.size() > 0) {
+    words.push_back(word);
+  }
+  return words;
+}
+
+std::vector< std::vector< int > > utils::rearrange_to_2index(
+  std::vector< int > values,
+  int nrows,
+  int ncols
+  ) {
+
+  int i = 0;
+  std::vector< std::vector< int > > result{};
+
+  if (nrows * ncols != values.size()) {
+    throw std::invalid_argument("Number of elements does not fit to number of rows and cols.");
+  }
+
+  for (int irow=0; irow<nrows; irow++) {
+    result.push_back(std::vector< int >{});
+    for (int icol=0; icol<ncols; icol++) {
+      result.back().push_back(values[i]);
+      i += 1;
+    }
+  }
+  return result;
+}
+

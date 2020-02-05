@@ -152,6 +152,60 @@ __/src/DetectorImage.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.s
 .PHONY : __/src/DetectorImage.cpp.s
 
+__/src/Parameters.o: __/src/Parameters.cpp.o
+
+.PHONY : __/src/Parameters.o
+
+# target to build an object file
+__/src/Parameters.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o
+.PHONY : __/src/Parameters.cpp.o
+
+__/src/Parameters.i: __/src/Parameters.cpp.i
+
+.PHONY : __/src/Parameters.i
+
+# target to preprocess a source file
+__/src/Parameters.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Parameters.cpp.i
+.PHONY : __/src/Parameters.cpp.i
+
+__/src/Parameters.s: __/src/Parameters.cpp.s
+
+.PHONY : __/src/Parameters.s
+
+# target to generate assembly for a file
+__/src/Parameters.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Parameters.cpp.s
+.PHONY : __/src/Parameters.cpp.s
+
+__/src/utils.o: __/src/utils.cpp.o
+
+.PHONY : __/src/utils.o
+
+# target to build an object file
+__/src/utils.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/utils.cpp.o
+.PHONY : __/src/utils.cpp.o
+
+__/src/utils.i: __/src/utils.cpp.i
+
+.PHONY : __/src/utils.i
+
+# target to preprocess a source file
+__/src/utils.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/utils.cpp.i
+.PHONY : __/src/utils.cpp.i
+
+__/src/utils.s: __/src/utils.cpp.s
+
+.PHONY : __/src/utils.s
+
+# target to generate assembly for a file
+__/src/utils.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/utils.cpp.s
+.PHONY : __/src/utils.cpp.s
+
 test.o: test.cpp.o
 
 .PHONY : test.o
@@ -191,6 +245,12 @@ help:
 	@echo "... __/src/DetectorImage.o"
 	@echo "... __/src/DetectorImage.i"
 	@echo "... __/src/DetectorImage.s"
+	@echo "... __/src/Parameters.o"
+	@echo "... __/src/Parameters.i"
+	@echo "... __/src/Parameters.s"
+	@echo "... __/src/utils.o"
+	@echo "... __/src/utils.i"
+	@echo "... __/src/utils.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

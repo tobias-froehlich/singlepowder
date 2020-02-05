@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <unistd.h>
 #include <string>
 #include <vector>
 #include "DetectorImage.h"
@@ -16,8 +15,12 @@ DetectorImage::~DetectorImage() {
 
 void DetectorImage::read_file(std::string filename) {
   std::ifstream reader;
-  std::string line;
-  std::vector< std::string > words;
+  std::string line = "";
+  std::vector< std::string > words{};
+  std::vector< int > all_pixels{};
+  std::vector< std::vector< int > > pixels{};
+  int i = 0;
+  int j = 0;
 
   reader.open(filename.c_str());
   if ( ! reader ) {
@@ -25,11 +28,32 @@ void DetectorImage::read_file(std::string filename) {
   }
   while (getline(reader, line)) {
     if (line[7] == ':') {
-      //std::cout << line << '\n';
+      words = utils::split(line, ' ');
+      if (words[0] == "NROWS") {
+        zNRows = std::stoi(words[2]);
+      }
+      else if (words[0] == "NCOLS") {
+        zNCols = std::stoi(words[2]);
+      }
     }
     else if (line[0] != '.') {
-//      words = utils::split(line, ' ');
+      for (std::string word : utils::split(line, ' ')){
+//        std::cout << word << '\n';
+        all_pixels.push_back(std::stoi(word));
+      }
     }
   }
+ 
+  zPixels = utils::rearrange_to_2index(all_pixels, zNRows, zNCols); 
+
   reader.close();
 }
+
+int DetectorImage::get_pixel(int icol, int irow) {
+  if ((irow < 0) || (irow >= zNRows) || (icol < 0) || (icol >= zNCols)) {
+    throw std::invalid_argument("Invalid pixel indizes");
+  }
+  return  zPixels[zNCols-1-irow][icol];
+}
+
+

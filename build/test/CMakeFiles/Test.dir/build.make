@@ -81,9 +81,33 @@ test/CMakeFiles/Test.dir/test.cpp.o.provides: test/CMakeFiles/Test.dir/test.cpp.
 test/CMakeFiles/Test.dir/test.cpp.o.provides.build: test/CMakeFiles/Test.dir/test.cpp.o
 
 
+test/CMakeFiles/Test.dir/__/src/utils.cpp.o: test/CMakeFiles/Test.dir/flags.make
+test/CMakeFiles/Test.dir/__/src/utils.cpp.o: ../src/utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/froehlich/singlepowder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/Test.dir/__/src/utils.cpp.o"
+	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/__/src/utils.cpp.o -c /home/froehlich/singlepowder/src/utils.cpp
+
+test/CMakeFiles/Test.dir/__/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/__/src/utils.cpp.i"
+	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/froehlich/singlepowder/src/utils.cpp > CMakeFiles/Test.dir/__/src/utils.cpp.i
+
+test/CMakeFiles/Test.dir/__/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/__/src/utils.cpp.s"
+	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/froehlich/singlepowder/src/utils.cpp -o CMakeFiles/Test.dir/__/src/utils.cpp.s
+
+test/CMakeFiles/Test.dir/__/src/utils.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/Test.dir/__/src/utils.cpp.o.requires
+
+test/CMakeFiles/Test.dir/__/src/utils.cpp.o.provides: test/CMakeFiles/Test.dir/__/src/utils.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/utils.cpp.o.provides.build
+.PHONY : test/CMakeFiles/Test.dir/__/src/utils.cpp.o.provides
+
+test/CMakeFiles/Test.dir/__/src/utils.cpp.o.provides.build: test/CMakeFiles/Test.dir/__/src/utils.cpp.o
+
+
 test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o: test/CMakeFiles/Test.dir/flags.make
 test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o: ../src/DetectorImage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/froehlich/singlepowder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/froehlich/singlepowder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o"
 	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o -c /home/froehlich/singlepowder/src/DetectorImage.cpp
 
 test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.i: cmake_force
@@ -105,20 +129,48 @@ test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o.provides: test/CMakeFiles/Te
 test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o.provides.build: test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o
 
 
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: test/CMakeFiles/Test.dir/flags.make
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/Parameters.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/froehlich/singlepowder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o"
+	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/__/src/Parameters.cpp.o -c /home/froehlich/singlepowder/src/Parameters.cpp
+
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/__/src/Parameters.cpp.i"
+	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/froehlich/singlepowder/src/Parameters.cpp > CMakeFiles/Test.dir/__/src/Parameters.cpp.i
+
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/__/src/Parameters.cpp.s"
+	cd /home/froehlich/singlepowder/build/test && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/froehlich/singlepowder/src/Parameters.cpp -o CMakeFiles/Test.dir/__/src/Parameters.cpp.s
+
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.requires:
+
+.PHONY : test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.requires
+
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.provides: test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.requires
+	$(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.provides.build
+.PHONY : test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.provides
+
+test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.provides.build: test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o
+
+
 # Object files for target Test
 Test_OBJECTS = \
 "CMakeFiles/Test.dir/test.cpp.o" \
-"CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o"
+"CMakeFiles/Test.dir/__/src/utils.cpp.o" \
+"CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o" \
+"CMakeFiles/Test.dir/__/src/Parameters.cpp.o"
 
 # External object files for target Test
 Test_EXTERNAL_OBJECTS =
 
 test/Test: test/CMakeFiles/Test.dir/test.cpp.o
+test/Test: test/CMakeFiles/Test.dir/__/src/utils.cpp.o
 test/Test: test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o
+test/Test: test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o
 test/Test: test/CMakeFiles/Test.dir/build.make
 test/Test: /usr/lib/libgtest.a
 test/Test: test/CMakeFiles/Test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/froehlich/singlepowder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/froehlich/singlepowder/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Test"
 	cd /home/froehlich/singlepowder/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,7 +179,9 @@ test/CMakeFiles/Test.dir/build: test/Test
 .PHONY : test/CMakeFiles/Test.dir/build
 
 test/CMakeFiles/Test.dir/requires: test/CMakeFiles/Test.dir/test.cpp.o.requires
+test/CMakeFiles/Test.dir/requires: test/CMakeFiles/Test.dir/__/src/utils.cpp.o.requires
 test/CMakeFiles/Test.dir/requires: test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o.requires
+test/CMakeFiles/Test.dir/requires: test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o.requires
 
 .PHONY : test/CMakeFiles/Test.dir/requires
 
