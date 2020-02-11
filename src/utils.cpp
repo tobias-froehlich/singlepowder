@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "const.cpp"
 #include "utils.h"
 
 
@@ -63,5 +64,10 @@ std::vector< std::vector< int > > utils::rearrange_to_2index(
     }
   }
   return result;
+}
+
+std::string utils::remove_comment(std::string line) {
+  int first_pos = line.find(cCommentTag);
+  return line.substr(0, first_pos);
 }
 

@@ -15,14 +15,9 @@ Parameters::~Parameters() {
 
 }
 
-std::string Parameters::remove_comment(std::string line) {
-  int first_pos = line.find(cCommentTag);
-  return line.substr(0, first_pos);
-}
-
 std::string Parameters::get_parametername(std::string line) {
   std::vector< std::string > words{};
-  words = utils::split(remove_comment(line), ' ');
+  words = utils::split(utils::remove_comment(line), ' ');
   if (words.size() != 2) {
     throw std::invalid_argument("Line with parameter must consist of exactly 2 words");
   }
@@ -31,7 +26,7 @@ std::string Parameters::get_parametername(std::string line) {
 
 float Parameters::read_float_parameter(std::string line) {
   std::vector< std::string > words{};
-  line = remove_comment(line);
+  line = utils::remove_comment(line);
   words = utils::split(line, ' ');
   if (words.size() != 2) {
     throw std::invalid_argument("Line with parameter must consist of exactly 2 words");
@@ -46,7 +41,7 @@ float Parameters::read_float_parameter(std::string line) {
 
 int Parameters::read_int_parameter(std::string line) {
   std::vector< std::string > words{};
-  line = remove_comment(line);
+  line = utils::remove_comment(line);
   words = utils::split(line, ' ');
   if (words.size() != 2) {
     throw std::invalid_argument("Line with parameter must consist of exactly 2 words");
@@ -61,7 +56,7 @@ int Parameters::read_int_parameter(std::string line) {
 
 std::string Parameters::read_str_parameter(std::string line) {
   std::vector< std::string > words{};
-  line = remove_comment(line);
+  line = utils::remove_comment(line);
   words = utils::split(line, ' ');
   if (words.size() != 2) {
     throw std::invalid_argument("Line with parameter must consist of exactly 2 words");
@@ -80,7 +75,7 @@ void Parameters::read_file(std::string filename) {
 
   while (getline(reader, line)) {
     // Empty lines and lines with comment only are ignored.
-    if ((utils::split(remove_comment(line), ' ')).size() > 0) {
+    if ((utils::split(utils::remove_comment(line), ' ')).size() > 0) {
       parametername = get_parametername(line);
       if (parametername == "pixel_width") {
         zPixelWidth = read_float_parameter(line);
@@ -91,9 +86,9 @@ void Parameters::read_file(std::string filename) {
       else if (parametername == "image_list_filename") {
         zImageListFilename = read_str_parameter(line);
       }
-      else if (parametername == "detector_distance") {
-        zDetectorDistance = read_float_parameter(line);
-      }
+      else if (parametername == "data_directory") {
+        zDataDirectory = read_str_parameter(line);
+      }    
     }
   }
 }
@@ -110,6 +105,6 @@ std::string Parameters::get_image_list_filename() {
   return zImageListFilename;
 }
 
-float Parameters::get_detector_distance() {
-  return zDetectorDistance;
+std::string Parameters::get_data_directory() {
+  return zDataDirectory;
 }

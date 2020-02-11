@@ -5,5 +5,7 @@ add_executable( Test
   ../src/utils.cpp
   ../src/DetectorImage.cpp
   ../src/Parameters.cpp
+  ../src/Action.cpp
+  ../src/List.cpp
 )
 target_link_libraries(Test ${GTEST_LIBRARIES} pthread)

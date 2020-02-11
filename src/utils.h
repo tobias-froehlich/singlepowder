@@ -16,6 +16,9 @@ namespace utils {
   ); // Fills the 1-index array "values" to a 2-index array.
      // The length of the 1-index array must be nrows x ncols.
      // Otherwise invalid_argument.
+  std::string remove_comment(std::string line);
+      // removes everything from the string from the first comment tag.
+      // Which character this is, is specified in const.cpp (zCommentTag).
 }
 
 #endif

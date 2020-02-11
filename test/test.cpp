@@ -4,6 +4,8 @@
 #include "../src/utils.h"
 #include "../src/DetectorImage.h"
 #include "../src/Parameters.h"
+#include "../src/Action.h"
+#include "../src/List.h"
 
 TEST(utils, split) {
   std::string str;
@@ -60,6 +62,13 @@ TEST(utils, rearrange_to_2index) {
 
 }
 
+TEST(utils, remove_comment) {
+  std::string line = "hallo du # da # huhu";
+  ASSERT_EQ(utils::remove_comment(line), "hallo du ");
+  line = "hallo du ";
+  ASSERT_EQ(utils::remove_comment(line), "hallo du ");
+}
+
 TEST(DetectorImage, create_and_delete) {
   DetectorImage* detector_image;
   detector_image = new DetectorImage();
@@ -78,6 +87,7 @@ TEST(DetectorImage, read_file) {
   DetectorImage* detector_image;
   detector_image = new DetectorImage();
   detector_image->read_file("../../test/testdata/AR506a_apex001_01_0001.out");
+  detector_image->read_file("../../test/testdata/TD015S001apex004_01_0001.out");
   delete detector_image;
 }
 
@@ -104,12 +114,9 @@ TEST(Parameters, create_and_delete) {
 }
 
 TEST(Parameters, small_functions) {
+  std::string line = "";
   Parameters* parameters;
-  std::string line = "hallo du # da # huhu";
   parameters = new Parameters();
-  ASSERT_EQ(parameters->remove_comment(line), "hallo du ");
-  line = "hallo du ";
-  ASSERT_EQ(parameters->remove_comment(line), "hallo du ");
   line = "hallo 1.257 137.5";
   ASSERT_THROW(parameters->get_parametername(line), std::invalid_argument);
   line = "hallo 1.257";
@@ -144,8 +151,95 @@ TEST(Parameters, read_file) {
   ASSERT_FLOAT_EQ(parameters->get_pixel_width(), 0.12);
   ASSERT_FLOAT_EQ(parameters->get_pixel_height(), 0.12);
   ASSERT_EQ(parameters->get_image_list_filename(), "images.txt");
-  ASSERT_FLOAT_EQ(parameters->get_detector_distance(), 80.0);
+  ASSERT_EQ(parameters->get_data_directory(), "/home/froehlich/TD015S001apex004/");
   delete parameters;
+}
+
+TEST(Action, create_and_delete) {
+  Action* action;
+  action = new Action();
+  delete action;
+}
+
+TEST(Action, read_line) {
+  std::string line = "";
+  Action* action;
+  action = new Action();
+  line = "eins zwei drei";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins zwei drei vier fuenf sechs sieben";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins zwei 3.0 4.0 5.0 6.0";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins 2.0 drei 4.0 5.0 6.0";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins 2.0 3.0 vier 5.0 6.0";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins 2.0 3.0 4.0 fuenf 6.0";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins 2.0 3.0 4.0 5.0 sechs";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins 2.0 3.0 4.0 5.0 6.0";
+  action->read_line(line);
+  ASSERT_FLOAT_EQ(action->get_twotheta(), 2.0);
+  ASSERT_FLOAT_EQ(action->get_theta(), 3.0);
+  ASSERT_FLOAT_EQ(action->get_chi(), 4.0);
+  ASSERT_FLOAT_EQ(action->get_detectordistance(), 5.0);
+  ASSERT_FLOAT_EQ(action->get_scantime(), 6.0);
+  delete action;
+}
+
+TEST(Action, datadirectory) {
+  Action* action;
+  action = new Action();
+  action->set_datadirectory("/hallo/welt/");
+  ASSERT_EQ(action->get_datadirectory(), "/hallo/welt/");
+  delete action;
+}
+
+TEST(Action, read_detectorimage) {
+  Action* action;
+  action = new Action();
+  action->read_line("TD015S001apex004_01_0001.out    0.000000    0.000000    0.000000    80.000000    60.000000");
+  action->set_datadirectory("../../test/testdata/");
+  action->read_detectorimage();
+  ASSERT_EQ(action->get_detectorimage()->get_pixel(385, 371), 406);
+  delete action;
+}
+
+TEST(List, create_and_delete) {
+  List* list;
+  list = new List();
+  delete list;
+}
+
+TEST(List, datadirectory) {
+  List* list;
+  list = new List();
+  list->set_datadirectory("/hallo/welt/");
+  ASSERT_EQ(list->get_datadirectory(), "/hallo/welt/");
+  delete list;
+}
+
+TEST(List, read_file) {
+  List* list;
+  list = new List();
+  ASSERT_THROW(list->read_file("does_no_exist.txt"), std::invalid_argument);
+  list->set_datadirectory("../../test/testdata/");
+  list->read_file("../../test/testdata/list.txt");
+  ASSERT_FLOAT_EQ(list->get_actions()[0]->get_twotheta(), 0.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[0]->get_theta(), 0.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[0]->get_chi(), 0.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[0]->get_detectordistance(), 80.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[0]->get_scantime(), 60.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[1]->get_twotheta(), 0.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[1]->get_theta(), 0.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[1]->get_chi(), 10.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[1]->get_detectordistance(), 80.0);
+  ASSERT_FLOAT_EQ(list->get_actions()[1]->get_scantime(), 60.0);
+  ASSERT_EQ(list->get_actions()[0]->get_detectorimage()->get_pixel(385, 371), 406);
+  ASSERT_EQ(list->get_actions()[1]->get_detectorimage()->get_pixel(297, 439), 38);
+  delete list;
 }
 
 int main(int argc, char** argv) {

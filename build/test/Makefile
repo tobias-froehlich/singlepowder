@@ -125,6 +125,33 @@ Test/fast:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/build
 .PHONY : Test/fast
 
+__/src/Action.o: __/src/Action.cpp.o
+
+.PHONY : __/src/Action.o
+
+# target to build an object file
+__/src/Action.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Action.cpp.o
+.PHONY : __/src/Action.cpp.o
+
+__/src/Action.i: __/src/Action.cpp.i
+
+.PHONY : __/src/Action.i
+
+# target to preprocess a source file
+__/src/Action.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Action.cpp.i
+.PHONY : __/src/Action.cpp.i
+
+__/src/Action.s: __/src/Action.cpp.s
+
+.PHONY : __/src/Action.s
+
+# target to generate assembly for a file
+__/src/Action.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Action.cpp.s
+.PHONY : __/src/Action.cpp.s
+
 __/src/DetectorImage.o: __/src/DetectorImage.cpp.o
 
 .PHONY : __/src/DetectorImage.o
@@ -151,6 +178,33 @@ __/src/DetectorImage.s: __/src/DetectorImage.cpp.s
 __/src/DetectorImage.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.s
 .PHONY : __/src/DetectorImage.cpp.s
+
+__/src/List.o: __/src/List.cpp.o
+
+.PHONY : __/src/List.o
+
+# target to build an object file
+__/src/List.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/List.cpp.o
+.PHONY : __/src/List.cpp.o
+
+__/src/List.i: __/src/List.cpp.i
+
+.PHONY : __/src/List.i
+
+# target to preprocess a source file
+__/src/List.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/List.cpp.i
+.PHONY : __/src/List.cpp.i
+
+__/src/List.s: __/src/List.cpp.s
+
+.PHONY : __/src/List.s
+
+# target to generate assembly for a file
+__/src/List.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/List.cpp.s
+.PHONY : __/src/List.cpp.s
 
 __/src/Parameters.o: __/src/Parameters.cpp.o
 
@@ -242,9 +296,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Test"
+	@echo "... __/src/Action.o"
+	@echo "... __/src/Action.i"
+	@echo "... __/src/Action.s"
 	@echo "... __/src/DetectorImage.o"
 	@echo "... __/src/DetectorImage.i"
 	@echo "... __/src/DetectorImage.s"
+	@echo "... __/src/List.o"
+	@echo "... __/src/List.i"
+	@echo "... __/src/List.s"
 	@echo "... __/src/Parameters.o"
 	@echo "... __/src/Parameters.i"
 	@echo "... __/src/Parameters.s"

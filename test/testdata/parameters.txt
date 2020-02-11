@@ -4,4 +4,4 @@ pixel_width           0.120
 pixel_height          0.120
 
 image_list_filename   images.txt # list of images
-detector_distance     80.0
+data_directory /home/froehlich/TD015S001apex004/

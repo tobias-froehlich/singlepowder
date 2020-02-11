@@ -6,13 +6,10 @@ class Parameters {
     float zPixelWidth = 0.0;
     float zPixelHeight = 0.0;
     std::string zImageListFilename = "";
-    float zDetectorDistance = 0.0;
+    std::string zDataDirectory = "";
   public:
     Parameters();
     ~Parameters();
-    std::string remove_comment(std::string line);
-      // removes everything from the string from the first comment tag.
-      // Which character this is, is specified in const.cpp (zCommentTag).
     std::string get_parametername(std::string line);
       // Gives the name of the parameter specified in the line.
     float read_float_parameter(std::string line);
@@ -25,7 +22,7 @@ class Parameters {
     float get_pixel_width(); // returns the parameter
     float get_pixel_height();
     std::string get_image_list_filename();
-    float get_detector_distance();
+    std::string get_data_directory();
 };
 
 #endif
