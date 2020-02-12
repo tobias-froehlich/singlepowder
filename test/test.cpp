@@ -6,6 +6,7 @@
 #include "../src/Parameters.h"
 #include "../src/Action.h"
 #include "../src/List.h"
+#include "../src/Geometry.h"
 
 TEST(utils, split) {
   std::string str;
@@ -239,6 +240,98 @@ TEST(List, read_file) {
   ASSERT_EQ(list->get_actions()[0]->get_detectorimage()->get_pixel(385, 371), 406);
   ASSERT_EQ(list->get_actions()[1]->get_detectorimage()->get_pixel(297, 439), 38);
   delete list;
+}
+
+TEST(Geometry, create_and_delete) {
+  Geometry* geometry;
+  geometry = new Geometry();
+  delete geometry;
+}
+
+TEST(Geometry, set_and_get) {
+  Geometry* geometry;
+  geometry = new Geometry();
+  geometry->set_detector_distance(80.0);
+  geometry->set_pixel_width(2.0);
+  geometry->set_pixel_height(3.0);
+  geometry->set_centre_pixel_x(200.0);
+  geometry->set_centre_pixel_y(300.0);
+  geometry->set_twotheta(35.0);
+  ASSERT_FLOAT_EQ(geometry->get_detector_distance(), 80.0);
+  ASSERT_FLOAT_EQ(geometry->get_pixel_width(), 2.0);
+  ASSERT_FLOAT_EQ(geometry->get_pixel_height(), 3.0);
+  ASSERT_FLOAT_EQ(geometry->get_centre_pixel_x(), 200.0);
+  ASSERT_FLOAT_EQ(geometry->get_centre_pixel_y(), 300.0);
+  ASSERT_FLOAT_EQ(geometry->get_twotheta(), 35.0);
+  delete geometry;
+}
+
+TEST(Geometry, calculate_powderangle) {
+  Geometry* geometry;
+  geometry = new Geometry();
+
+  geometry->set_detector_distance(80.0);
+  geometry->set_pixel_width(1.0);
+  geometry->set_pixel_height(1.0);
+  geometry->set_centre_pixel_x(256.0);
+  geometry->set_centre_pixel_y(256.0);
+  geometry->set_twotheta(0.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 0.0);
+
+  geometry->set_detector_distance(80.0);
+  geometry->set_pixel_width(1.0);
+  geometry->set_pixel_height(1.0);
+  geometry->set_centre_pixel_x(256.0);
+  geometry->set_centre_pixel_y(256.0);
+  geometry->set_twotheta(90.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 90.0);
+  geometry->set_twotheta(-90.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 90.0);
+  geometry->set_twotheta(180.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 180.0);
+  geometry->set_twotheta(-180.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 180.0);
+  geometry->set_twotheta(35.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 35.0);
+  geometry->set_twotheta(-35.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 35.0);
+
+  geometry->set_detector_distance(80.0);
+  geometry->set_pixel_width(1.0);
+  geometry->set_pixel_height(1.0);
+  geometry->set_centre_pixel_x(256.0);
+  geometry->set_centre_pixel_y(256.0);
+  geometry->set_twotheta(70.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 70.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(266, 256), 62.8749836511);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 266), 70.1609547636);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(266, 266), 63.0979690188);
+
+
+  geometry->set_detector_distance(80.0);
+  geometry->set_pixel_width(2.0);
+  geometry->set_pixel_height(5.0);
+  geometry->set_centre_pixel_x(256.0);
+  geometry->set_centre_pixel_y(256.0);
+  geometry->set_twotheta(70.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 70.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(261, 256), 62.8749836511);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 258), 70.1609547636);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(261, 258), 63.0979690188);
+
+  geometry->set_detector_distance(160.0);
+  geometry->set_pixel_width(4.0);
+  geometry->set_pixel_height(10.0);
+  geometry->set_centre_pixel_x(256.0);
+  geometry->set_centre_pixel_y(256.0);
+  geometry->set_twotheta(70.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 256), 70.0);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(261, 256), 62.8749836511);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 258), 70.1609547636);
+  ASSERT_FLOAT_EQ(geometry->calculate_powderangle(261, 258), 63.0979690188);
+
+
+  delete geometry;
 }
 
 int main(int argc, char** argv) {

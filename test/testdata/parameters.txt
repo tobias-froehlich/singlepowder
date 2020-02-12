@@ -2,6 +2,8 @@
 
 pixel_width           0.120
 pixel_height          0.120
+centre_pixel_x        258.0
+centre_pixel_y        266.0
 
 image_list_filename   images.txt # list of images
 data_directory /home/froehlich/TD015S001apex004/

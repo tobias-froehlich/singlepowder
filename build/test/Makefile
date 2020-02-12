@@ -179,6 +179,33 @@ __/src/DetectorImage.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.s
 .PHONY : __/src/DetectorImage.cpp.s
 
+__/src/Geometry.o: __/src/Geometry.cpp.o
+
+.PHONY : __/src/Geometry.o
+
+# target to build an object file
+__/src/Geometry.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o
+.PHONY : __/src/Geometry.cpp.o
+
+__/src/Geometry.i: __/src/Geometry.cpp.i
+
+.PHONY : __/src/Geometry.i
+
+# target to preprocess a source file
+__/src/Geometry.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Geometry.cpp.i
+.PHONY : __/src/Geometry.cpp.i
+
+__/src/Geometry.s: __/src/Geometry.cpp.s
+
+.PHONY : __/src/Geometry.s
+
+# target to generate assembly for a file
+__/src/Geometry.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Geometry.cpp.s
+.PHONY : __/src/Geometry.cpp.s
+
 __/src/List.o: __/src/List.cpp.o
 
 .PHONY : __/src/List.o
@@ -302,6 +329,9 @@ help:
 	@echo "... __/src/DetectorImage.o"
 	@echo "... __/src/DetectorImage.i"
 	@echo "... __/src/DetectorImage.s"
+	@echo "... __/src/Geometry.o"
+	@echo "... __/src/Geometry.i"
+	@echo "... __/src/Geometry.s"
 	@echo "... __/src/List.o"
 	@echo "... __/src/List.i"
 	@echo "... __/src/List.s"

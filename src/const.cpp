@@ -1,1 +1,3 @@
 const char cCommentTag = '#';
+const float cPiOver180 = 0.017453292519943295;
+const float c180OverPi = 1 / cPiOver180;

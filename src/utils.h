@@ -19,6 +19,10 @@ namespace utils {
   std::string remove_comment(std::string line);
       // removes everything from the string from the first comment tag.
       // Which character this is, is specified in const.cpp (zCommentTag).
+  float square(float number);
+      // Calculates the square of a float. Just to avoid calculating
+      // the number twice like (some caclulation) * (same calculation).
 }
+
 
 #endif

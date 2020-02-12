@@ -71,3 +71,7 @@ std::string utils::remove_comment(std::string line) {
   return line.substr(0, first_pos);
 }
 
+float utils::square(float number) {
+  return number * number;
+}
+

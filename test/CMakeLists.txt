@@ -7,5 +7,6 @@ add_executable( Test
   ../src/Parameters.cpp
   ../src/Action.cpp
   ../src/List.cpp
+  ../src/Geometry.cpp
 )
 target_link_libraries(Test ${GTEST_LIBRARIES} pthread)
