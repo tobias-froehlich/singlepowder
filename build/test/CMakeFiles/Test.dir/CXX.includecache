@@ -88,22 +88,6 @@ utils.h
 
 /home/froehlich/singlepowder/src/Parameters.h
 
-/home/froehlich/singlepowder/src/Vector.cpp
-iostream
--
-fstream
--
-unistd.h
--
-string
--
-const.cpp
-/home/froehlich/singlepowder/src/const.cpp
-Vector.h
-/home/froehlich/singlepowder/src/Vector.h
-
-/home/froehlich/singlepowder/src/Vector.h
-
 /home/froehlich/singlepowder/src/const.cpp
 
 /home/froehlich/singlepowder/src/utils.cpp
@@ -129,8 +113,6 @@ gtest/gtest.h
 /home/froehlich/singlepowder/src/const.cpp
 ../src/utils.h
 /home/froehlich/singlepowder/src/utils.h
-../src/Vector.h
-/home/froehlich/singlepowder/src/Vector.h
 ../src/DetectorImage.h
 /home/froehlich/singlepowder/src/DetectorImage.h
 ../src/Parameters.h

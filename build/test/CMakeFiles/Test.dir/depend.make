@@ -23,10 +23,6 @@ test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/Parameters.h
 test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/const.cpp
 test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/utils.h
 
-test/CMakeFiles/Test.dir/__/src/Vector.cpp.o: ../src/Vector.cpp
-test/CMakeFiles/Test.dir/__/src/Vector.cpp.o: ../src/Vector.h
-test/CMakeFiles/Test.dir/__/src/Vector.cpp.o: ../src/const.cpp
-
 test/CMakeFiles/Test.dir/__/src/utils.cpp.o: ../src/const.cpp
 test/CMakeFiles/Test.dir/__/src/utils.cpp.o: ../src/utils.cpp
 test/CMakeFiles/Test.dir/__/src/utils.cpp.o: ../src/utils.h
@@ -35,7 +31,6 @@ test/CMakeFiles/Test.dir/test.cpp.o: ../src/Action.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/DetectorImage.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/List.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Parameters.h
-test/CMakeFiles/Test.dir/test.cpp.o: ../src/Vector.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/const.cpp
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/utils.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../test/test.cpp
