@@ -432,8 +432,17 @@ TEST(Diffractogram, init) {
   ASSERT_EQ(diffractogram->get_num_of_pixels(0), 1);
   ASSERT_EQ(diffractogram->get_counts(10), 7);
 
+  delete diffractogram;
+}
 
-
+TEST(Diffractogram, write_file) {
+  Diffractogram* diffractogram;
+  diffractogram = new Diffractogram();
+  diffractogram->init(5.0, 10.0, 0.1);
+  ASSERT_THROW(diffractogram->write_file("notexisting_path/output.txt"), std::invalid_argument);
+  diffractogram->add_counts(7.0, 5);
+  diffractogram->add_counts(7.0, 3);
+  diffractogram->write_file("../../test/testdata/output.txt");
   delete diffractogram;
 }
 

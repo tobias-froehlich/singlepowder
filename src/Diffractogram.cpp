@@ -81,3 +81,14 @@ void Diffractogram::add_counts(float angle, int counts) {
     zCounts[index] += counts;
   }
 }
+
+void Diffractogram::write_file(std::string filename) {
+  std::ofstream file(filename.c_str());
+  if (!(file.is_open())) {
+    throw std::invalid_argument("Cannot open file for writing.");
+  }
+  for(int i = 0; i < zLength; i++) {
+    file << zAngles[i] << " " << zNumOfPixels[i] << " " << zCounts[i] << '\n';
+  }
+  file.close();
+}

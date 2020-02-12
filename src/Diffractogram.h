@@ -22,6 +22,7 @@ class Diffractogram {
     int get_num_of_pixels(int index);
     int get_counts(int index);
     void add_counts(float angle, int counts);
+    void write_file(std::string filename);
 };
 
 #endif
