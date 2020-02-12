@@ -1,4 +1,4 @@
-# filename     twotheta     theta        chi   detectordistance    scantime
-TD015S001apex004_01_0001.out    0.000000    0.000000    0.000000    80.000000    60.000000
-TD015S001apex004_02_0001.out    0.000000    0.000000    10.000000    80.000000    60.000000
+# filename     twotheta     theta        chi   detectordistance    scantime    weight
+TD015S001apex004_01_0001.out    0.000000    0.000000    0.000000    80.000000    60.000000    1.000000
+TD015S001apex004_02_0001.out    0.000000    0.000000    10.000000    80.000000    60.000000    0.984808
 

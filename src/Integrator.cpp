@@ -45,17 +45,20 @@ void Integrator::integrate(std::string parameterfilename) {
   DetectorImage* detectorimage;
   int counts;
   float angle;
+  float weight;
   for (Action* action : actions) {
     detectorimage = action->get_detectorimage();
+    weight = action->get_weight();
     zGeometry->set_detector_distance(action->get_detectordistance());
     zGeometry->set_twotheta(action->get_twotheta());
     for (int y=0; y<512; y++) {
       for (int x=0; x<512; x++) {
         counts = detectorimage->get_pixel(x, y);
         angle = zGeometry->calculate_powderangle(x, y);
-        zDiffractogram->add_counts(angle, counts);
+        zDiffractogram->add_counts(angle, counts, weight);
       }
     }
   }
+  zDiffractogram->calculate_intensities_and_errors();
   zDiffractogram->write_file(zParameters->get_output_filename());
 }

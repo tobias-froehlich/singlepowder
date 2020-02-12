@@ -4,11 +4,12 @@
 class Action {
   private:
     std::string zDataFilename = "";
-    float zTwotheta = 0;
-    float zTheta = 0;
-    float zChi = 0;
-    float zDetectordistance = 0;
-    float zScantime = 0;
+    float zTwotheta = 0.0;
+    float zTheta = 0.0;
+    float zChi = 0.0;
+    float zDetectordistance = 0.0;
+    float zScantime = 0.0;
+    float zWeight = 0.0;
     std::string zDataDirectory = "";
     DetectorImage* zDetectorImage;
   public:
@@ -21,6 +22,7 @@ class Action {
     float get_chi();
     float get_detectordistance();
     float get_scantime();
+    float get_weight();
     void read_detectorimage();
     void set_datadirectory(std::string datadirectory);
     std::string get_datadirectory();

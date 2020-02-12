@@ -186,25 +186,28 @@ TEST(Action, read_line) {
   action = new Action();
   line = "eins zwei drei";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins zwei drei vier fuenf sechs sieben";
+  line = "eins zwei drei vier fuenf sechs sieben acht";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins zwei 3.0 4.0 5.0 6.0";
+  line = "eins zwei 3.0 4.0 5.0 6.0 7.0";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins 2.0 drei 4.0 5.0 6.0";
+  line = "eins 2.0 drei 4.0 5.0 6.0 7.0";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins 2.0 3.0 vier 5.0 6.0";
+  line = "eins 2.0 3.0 vier 5.0 6.0 7.0";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins 2.0 3.0 4.0 fuenf 6.0";
+  line = "eins 2.0 3.0 4.0 fuenf 6.0 7.0";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins 2.0 3.0 4.0 5.0 sechs";
+  line = "eins 2.0 3.0 4.0 5.0 sechs 7.0";
   ASSERT_THROW(action->read_line(line), std::invalid_argument);
-  line = "eins 2.0 3.0 4.0 5.0 6.0";
+  line = "eins 2.0 3.0 4.0 5.0 6.0 sieben";
+  ASSERT_THROW(action->read_line(line), std::invalid_argument);
+  line = "eins 2.0 3.0 4.0 5.0 6.0 7.0";
   action->read_line(line);
   ASSERT_FLOAT_EQ(action->get_twotheta(), 2.0);
   ASSERT_FLOAT_EQ(action->get_theta(), 3.0);
   ASSERT_FLOAT_EQ(action->get_chi(), 4.0);
   ASSERT_FLOAT_EQ(action->get_detectordistance(), 5.0);
   ASSERT_FLOAT_EQ(action->get_scantime(), 6.0);
+  ASSERT_FLOAT_EQ(action->get_weight(), 7.0);
   delete action;
 }
 
@@ -219,7 +222,7 @@ TEST(Action, datadirectory) {
 TEST(Action, read_detectorimage) {
   Action* action;
   action = new Action();
-  action->read_line("TD015S001apex004_01_0001.out    0.000000    0.000000    0.000000    80.000000    60.000000");
+  action->read_line("TD015S001apex004_01_0001.out    0.000000    0.000000    0.000000    80.000000    60.000000  1.0000");
   action->set_datadirectory("../../test/testdata/");
   action->read_detectorimage();
   ASSERT_EQ(action->get_detectorimage()->get_pixel(385, 371), 406);
@@ -374,14 +377,22 @@ TEST(Diffractogram, init) {
   ASSERT_THROW(diffractogram->get_angle(11), std::invalid_argument);
   ASSERT_FLOAT_EQ(diffractogram->get_angle(0), 0.0);
   ASSERT_FLOAT_EQ(diffractogram->get_angle(10), 1.0);
-  ASSERT_THROW(diffractogram->get_num_of_pixels(-1), std::invalid_argument);
-  ASSERT_THROW(diffractogram->get_num_of_pixels(11), std::invalid_argument);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 0);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(10), 0);
-  ASSERT_THROW(diffractogram->get_counts(-1), std::invalid_argument);
-  ASSERT_THROW(diffractogram->get_counts(11), std::invalid_argument);
-  ASSERT_EQ(diffractogram->get_counts(0), 0);
-  ASSERT_EQ(diffractogram->get_counts(10), 0);
+  ASSERT_THROW(diffractogram->get_sum_of_weights(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_weights(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(10), 0.0);
+  ASSERT_THROW(diffractogram->get_sum_of_weighted_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_weighted_counts(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(10), 0.0);
+  ASSERT_THROW(diffractogram->get_sum_of_squareweighted_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_squareweighted_counts(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(10), 0.0);
+  ASSERT_THROW(diffractogram->get_intensity(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_intensity(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(10), 0.0);
 
   diffractogram->init(0.0, 1.09, 0.1);
   ASSERT_EQ(diffractogram->get_length(), 11);
@@ -392,14 +403,22 @@ TEST(Diffractogram, init) {
   ASSERT_THROW(diffractogram->get_angle(11), std::invalid_argument);
   ASSERT_FLOAT_EQ(diffractogram->get_angle(0), 0.0);
   ASSERT_FLOAT_EQ(diffractogram->get_angle(10), 1.0);
-  ASSERT_THROW(diffractogram->get_num_of_pixels(-1), std::invalid_argument);
-  ASSERT_THROW(diffractogram->get_num_of_pixels(11), std::invalid_argument);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 0);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(10), 0);
-  ASSERT_THROW(diffractogram->get_counts(-1), std::invalid_argument);
-  ASSERT_THROW(diffractogram->get_counts(11), std::invalid_argument);
-  ASSERT_EQ(diffractogram->get_counts(0), 0);
-  ASSERT_EQ(diffractogram->get_counts(10), 0);
+  ASSERT_THROW(diffractogram->get_sum_of_weights(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_weights(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(10), 0.0);
+  ASSERT_THROW(diffractogram->get_sum_of_weighted_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_weighted_counts(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(10), 0.0);
+  ASSERT_THROW(diffractogram->get_sum_of_squareweighted_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_squareweighted_counts(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(10), 0.0);
+  ASSERT_THROW(diffractogram->get_intensity(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_intensity(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(10), 0.0);
 
   diffractogram->init(5.0, 10.0, 0.5);
   ASSERT_EQ(diffractogram->get_length(), 11);
@@ -410,34 +429,71 @@ TEST(Diffractogram, init) {
   ASSERT_THROW(diffractogram->get_angle(11), std::invalid_argument);
   ASSERT_FLOAT_EQ(diffractogram->get_angle(0), 5.0);
   ASSERT_FLOAT_EQ(diffractogram->get_angle(10), 10.0);
-  ASSERT_THROW(diffractogram->get_num_of_pixels(-1), std::invalid_argument);
-  ASSERT_THROW(diffractogram->get_num_of_pixels(11), std::invalid_argument);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 0);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(10), 0);
-  ASSERT_THROW(diffractogram->get_counts(-1), std::invalid_argument);
-  ASSERT_THROW(diffractogram->get_counts(11), std::invalid_argument);
-  ASSERT_EQ(diffractogram->get_counts(0), 0);
-  ASSERT_EQ(diffractogram->get_counts(10), 0);
+  ASSERT_THROW(diffractogram->get_sum_of_weights(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_weights(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(10), 0.0);
+  ASSERT_THROW(diffractogram->get_sum_of_weighted_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_weighted_counts(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(10), 0);
+  ASSERT_THROW(diffractogram->get_sum_of_squareweighted_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_sum_of_squareweighted_counts(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(10), 0);
   for(int i=0; i<diffractogram->get_length(); i++) {
-    ASSERT_EQ(diffractogram->get_num_of_pixels(i), 0);
-    ASSERT_EQ(diffractogram->get_counts(i), 0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(i), 0.0);
   }
-  diffractogram->add_counts(4.7499, 5);
+  diffractogram->add_counts(4.7499, 5, 1.0);
   for(int i=0; i<diffractogram->get_length(); i++) {
-    ASSERT_EQ(diffractogram->get_num_of_pixels(i), 0);
-    ASSERT_EQ(diffractogram->get_counts(i), 0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_intensity(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_error(i), 0.0);
   }
-  diffractogram->add_counts(10.2501, 5);
+  diffractogram->add_counts(10.2501, 5, 1.0);
   for(int i=0; i<diffractogram->get_length(); i++) {
-    ASSERT_EQ(diffractogram->get_num_of_pixels(i), 0);
-    ASSERT_EQ(diffractogram->get_counts(i), 0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_intensity(i), 0.0);
+    ASSERT_FLOAT_EQ(diffractogram->get_error(i), 0.0);
   }
-  diffractogram->add_counts(4.7501, 5);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 1);
-  ASSERT_EQ(diffractogram->get_counts(0), 5);
-  diffractogram->add_counts(10.2499, 7);
-  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 1);
-  ASSERT_EQ(diffractogram->get_counts(10), 7);
+  diffractogram->add_counts(4.7501, 5, 0.5);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(0), 0.5);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(0), 2.5);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(0), 1.25);
+  ASSERT_FLOAT_EQ(diffractogram->get_intensity(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(0), 0.0);
+  diffractogram->add_counts(4.7501, 3, 1.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(0), 1.5);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(0), 5.5);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(0), 4.25);
+  ASSERT_FLOAT_EQ(diffractogram->get_intensity(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(0), 0.0);
+  diffractogram->add_counts(10.2499, 7, 0.2);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weights(10), 0.2);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_weighted_counts(10), 1.4);
+  ASSERT_FLOAT_EQ(diffractogram->get_sum_of_squareweighted_counts(10), 0.28);
+  ASSERT_FLOAT_EQ(diffractogram->get_intensity(10), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(10), 0.0);
+
+  delete diffractogram;
+}
+
+TEST(Diffractogram, calculate_intentsites_and_errors) {
+  Diffractogram* diffractogram;
+  diffractogram = new Diffractogram();
+
+  diffractogram->init(0.0, 10.0, 0.1);
+  diffractogram->add_counts(0.0, 5, 0.5);
+  diffractogram->add_counts(0.0, 3, 1.0);
+  diffractogram->calculate_intensities_and_errors();
+  ASSERT_FLOAT_EQ(diffractogram->get_intensity(0), 3.6666666666666);
+  ASSERT_FLOAT_EQ(diffractogram->get_error(0), 1.37436854187);
 
   delete diffractogram;
 }
@@ -447,8 +503,8 @@ TEST(Diffractogram, write_file) {
   diffractogram = new Diffractogram();
   diffractogram->init(5.0, 10.0, 0.1);
   ASSERT_THROW(diffractogram->write_file("notexisting_path/output.txt"), std::invalid_argument);
-  diffractogram->add_counts(7.0, 5);
-  diffractogram->add_counts(7.0, 3);
+  diffractogram->add_counts(7.0, 5, 0.5);
+  diffractogram->add_counts(7.0, 3, 0.3);
   diffractogram->write_file("../../test/testdata/output.txt");
   delete diffractogram;
 }

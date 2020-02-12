@@ -22,14 +22,20 @@ void Diffractogram::init(float angle_min, float angle_max, float step) {
   }
   zLength = 0;
   zAngles.clear();
-  zNumOfPixels.clear();
-  zCounts.clear();
+  zSumOfWeights.clear();
+  zSumOfWeightedCounts.clear();
+  zSumOfSquareweightedCounts.clear();
+  zIntensities.clear();
+  zErrors.clear();
   float angle = angle_min;
   while ((angle < angle_max) || (utils::float_equal(angle, angle_max))) {
     zLength += 1;
     zAngles.push_back(angle);
-    zNumOfPixels.push_back(0);
-    zCounts.push_back(0);
+    zSumOfWeights.push_back(0.0);
+    zSumOfWeightedCounts.push_back(0.0);
+    zSumOfSquareweightedCounts.push_back(0.0);
+    zIntensities.push_back(0.0);
+    zErrors.push_back(0.0);
     angle = angle_min + zLength * step;
   }
   zAngleMin = zAngles.front();
@@ -60,25 +66,54 @@ float Diffractogram::get_angle(int index) {
   return zAngles[index];
 }
 
-int Diffractogram::get_num_of_pixels(int index) {
+float Diffractogram::get_sum_of_weights(int index) {
   if ((index < 0) || (index >= zLength)) {
     throw std::invalid_argument("Index of diffractogram entry out of range.");
   }
-  return zNumOfPixels[index]; 
+  return zSumOfWeights[index]; 
 }
 
-int Diffractogram::get_counts(int index) {
+float Diffractogram::get_sum_of_weighted_counts(int index) {
   if ((index < 0) || (index >= zLength)) {
     throw std::invalid_argument("Index of diffractogram entry out of range.");
   }
-  return zCounts[index]; 
+  return zSumOfWeightedCounts[index]; 
 }
 
-void Diffractogram::add_counts(float angle, int counts) {
+float Diffractogram::get_sum_of_squareweighted_counts(int index) {
+  if ((index < 0) || (index >= zLength)) {
+    throw std::invalid_argument("Index of diffractogram entry out of range.");
+  }
+  return zSumOfSquareweightedCounts[index];
+}
+
+float Diffractogram::get_intensity(int index) {
+  if ((index < 0) || (index >= zLength)) {
+    throw std::invalid_argument("Index of diffractogram entry out of range.");
+  }
+  return zIntensities[index];
+}
+
+float Diffractogram::get_error(int index) {
+  if ((index < 0) || (index >= zLength)) {
+    throw std::invalid_argument("Index of diffractogram entry out of range.");
+  }
+  return zErrors[index];
+}
+
+void Diffractogram::add_counts(float angle, int counts, float weight) {
   int index = std::round((angle - zAngleMin)/zStep);
   if ((index >= 0) && (index < zLength)) {
-    zNumOfPixels[index] += 1;
-    zCounts[index] += counts;
+    zSumOfWeights[index] += weight;
+    zSumOfWeightedCounts[index] += weight * (float)counts;
+    zSumOfSquareweightedCounts[index] += utils::square(weight) * (float)counts;
+  }
+}
+
+void Diffractogram::calculate_intensities_and_errors() {
+  for (int i = 0; i < zLength; i++) {
+    zIntensities[i] = zSumOfWeightedCounts[i] / zSumOfWeights[i];
+    zErrors[i] = std::sqrt(zSumOfSquareweightedCounts[i]) / zSumOfWeights[i];
   }
 }
 
@@ -87,8 +122,9 @@ void Diffractogram::write_file(std::string filename) {
   if (!(file.is_open())) {
     throw std::invalid_argument("Cannot open file for writing.");
   }
+  file << "#  angle   sum_of_weights    sum_of_weighted_counts     sum_of_squareweighted_counts    intensity    error \n";
   for(int i = 0; i < zLength; i++) {
-    file << zAngles[i] << " " << zNumOfPixels[i] << " " << zCounts[i] << '\n';
+    file << zAngles[i] << " " << zSumOfWeights[i] << " " << zSumOfWeightedCounts[i] << " " << zSumOfSquareweightedCounts[i] << " " << zIntensities[i] << " " << zErrors[i] << '\n';
   }
   file.close();
 }

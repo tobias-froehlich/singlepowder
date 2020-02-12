@@ -18,10 +18,10 @@ Action::~Action() {
 
 void Action::read_line(std::string line) {
   std::vector< std::string > words = utils::split(line, ' ');
-  if (words.size() != 6) {
-    throw std::invalid_argument("Line in list must have exactly 6 words.");
+  if (words.size() != 7) {
+    throw std::invalid_argument("Line in list must have exactly 7 words.");
   }
-  for (int i=1; i<6; i++) {
+  for (int i=1; i<7; i++) {
     try {
       std::stof(words[i]);
     }
@@ -35,6 +35,7 @@ void Action::read_line(std::string line) {
   zChi = std::stof(words[3]);
   zDetectordistance = std::stof(words[4]);
   zScantime = std::stof(words[5]);
+  zWeight = std::stof(words[6]);
 }
 
 std::string Action::get_data_filename() {
@@ -59,6 +60,10 @@ float Action::get_detectordistance() {
 
 float Action::get_scantime() {
   return zScantime;
+}
+
+float Action::get_weight() {
+  return zWeight;
 }
 
 void Action::set_datadirectory(std::string datadirectory) {
