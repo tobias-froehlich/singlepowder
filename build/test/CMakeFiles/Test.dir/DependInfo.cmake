@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/froehlich/singlepowder/src/Action.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Action.cpp.o"
   "/home/froehlich/singlepowder/src/DetectorImage.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o"
+  "/home/froehlich/singlepowder/src/Diffractogram.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o"
   "/home/froehlich/singlepowder/src/Geometry.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o"
   "/home/froehlich/singlepowder/src/List.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/List.cpp.o"
   "/home/froehlich/singlepowder/src/Parameters.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o"

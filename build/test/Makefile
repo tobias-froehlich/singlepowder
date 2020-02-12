@@ -179,6 +179,33 @@ __/src/DetectorImage.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.s
 .PHONY : __/src/DetectorImage.cpp.s
 
+__/src/Diffractogram.o: __/src/Diffractogram.cpp.o
+
+.PHONY : __/src/Diffractogram.o
+
+# target to build an object file
+__/src/Diffractogram.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o
+.PHONY : __/src/Diffractogram.cpp.o
+
+__/src/Diffractogram.i: __/src/Diffractogram.cpp.i
+
+.PHONY : __/src/Diffractogram.i
+
+# target to preprocess a source file
+__/src/Diffractogram.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.i
+.PHONY : __/src/Diffractogram.cpp.i
+
+__/src/Diffractogram.s: __/src/Diffractogram.cpp.s
+
+.PHONY : __/src/Diffractogram.s
+
+# target to generate assembly for a file
+__/src/Diffractogram.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.s
+.PHONY : __/src/Diffractogram.cpp.s
+
 __/src/Geometry.o: __/src/Geometry.cpp.o
 
 .PHONY : __/src/Geometry.o
@@ -329,6 +356,9 @@ help:
 	@echo "... __/src/DetectorImage.o"
 	@echo "... __/src/DetectorImage.i"
 	@echo "... __/src/DetectorImage.s"
+	@echo "... __/src/Diffractogram.o"
+	@echo "... __/src/Diffractogram.i"
+	@echo "... __/src/Diffractogram.s"
 	@echo "... __/src/Geometry.o"
 	@echo "... __/src/Geometry.i"
 	@echo "... __/src/Geometry.s"

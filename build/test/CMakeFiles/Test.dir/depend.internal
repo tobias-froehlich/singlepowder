@@ -11,6 +11,11 @@ test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o
  /home/froehlich/singlepowder/src/DetectorImage.cpp
  /home/froehlich/singlepowder/src/DetectorImage.h
  /home/froehlich/singlepowder/src/utils.h
+test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o
+ /home/froehlich/singlepowder/src/Diffractogram.cpp
+ /home/froehlich/singlepowder/src/Diffractogram.h
+ /home/froehlich/singlepowder/src/const.cpp
+ /home/froehlich/singlepowder/src/utils.h
 test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o
  /home/froehlich/singlepowder/src/Geometry.cpp
  /home/froehlich/singlepowder/src/Geometry.h
@@ -35,6 +40,7 @@ test/CMakeFiles/Test.dir/__/src/utils.cpp.o
 test/CMakeFiles/Test.dir/test.cpp.o
  /home/froehlich/singlepowder/src/Action.h
  /home/froehlich/singlepowder/src/DetectorImage.h
+ /home/froehlich/singlepowder/src/Diffractogram.h
  /home/froehlich/singlepowder/src/Geometry.h
  /home/froehlich/singlepowder/src/List.h
  /home/froehlich/singlepowder/src/Parameters.h

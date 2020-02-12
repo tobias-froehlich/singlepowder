@@ -8,5 +8,6 @@ add_executable( Test
   ../src/Action.cpp
   ../src/List.cpp
   ../src/Geometry.cpp
+  ../src/Diffractogram.cpp
 )
 target_link_libraries(Test ${GTEST_LIBRARIES} pthread)

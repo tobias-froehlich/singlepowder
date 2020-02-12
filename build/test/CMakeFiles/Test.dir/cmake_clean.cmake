@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Test.dir/__/src/Action.cpp.o"
   "CMakeFiles/Test.dir/__/src/List.cpp.o"
   "CMakeFiles/Test.dir/__/src/Geometry.cpp.o"
+  "CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o"
   "Test.pdb"
   "Test"
 )

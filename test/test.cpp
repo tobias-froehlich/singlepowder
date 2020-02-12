@@ -7,6 +7,7 @@
 #include "../src/Action.h"
 #include "../src/List.h"
 #include "../src/Geometry.h"
+#include "../src/Diffractogram.h"
 
 TEST(utils, split) {
   std::string str;
@@ -68,6 +69,17 @@ TEST(utils, remove_comment) {
   ASSERT_EQ(utils::remove_comment(line), "hallo du ");
   line = "hallo du ";
   ASSERT_EQ(utils::remove_comment(line), "hallo du ");
+}
+
+TEST(utils, square) {
+  ASSERT_FLOAT_EQ(utils::square(3.0), 9.0);
+  ASSERT_FLOAT_EQ(utils::square(-4.0), 16.0);
+}
+
+TEST(utils, float_equal) {
+  ASSERT_TRUE(utils::float_equal(1.2345, 1.2345));
+  ASSERT_FALSE(utils::float_equal(1.2345, 1.2346));
+  ASSERT_TRUE(utils::float_equal(1.0, 1.0));
 }
 
 TEST(DetectorImage, create_and_delete) {
@@ -330,8 +342,99 @@ TEST(Geometry, calculate_powderangle) {
   ASSERT_FLOAT_EQ(geometry->calculate_powderangle(256, 258), 70.1609547636);
   ASSERT_FLOAT_EQ(geometry->calculate_powderangle(261, 258), 63.0979690188);
 
-
   delete geometry;
+}
+
+TEST(Diffractogram, create_and_delete) {
+  Diffractogram* diffractogram;
+  diffractogram = new Diffractogram();
+  delete diffractogram;
+}
+
+TEST(Diffractogram, init) {
+  Diffractogram* diffractogram;
+  diffractogram = new Diffractogram();
+  
+  ASSERT_THROW(diffractogram->init(0.0, 10.0, -0.1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->init(0.0, 10.0, 0.0), std::invalid_argument);
+
+  diffractogram->init(0.0, 1.0, 0.1);
+  ASSERT_EQ(diffractogram->get_length(), 11);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle_min(), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle_max(), 1.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_step(), 0.1);
+  ASSERT_THROW(diffractogram->get_angle(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_angle(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle(10), 1.0);
+  ASSERT_THROW(diffractogram->get_num_of_pixels(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_num_of_pixels(11), std::invalid_argument);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 0);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(10), 0);
+  ASSERT_THROW(diffractogram->get_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_counts(11), std::invalid_argument);
+  ASSERT_EQ(diffractogram->get_counts(0), 0);
+  ASSERT_EQ(diffractogram->get_counts(10), 0);
+
+  diffractogram->init(0.0, 1.09, 0.1);
+  ASSERT_EQ(diffractogram->get_length(), 11);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle_min(), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle_max(), 1.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_step(), 0.1);
+  ASSERT_THROW(diffractogram->get_angle(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_angle(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle(0), 0.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle(10), 1.0);
+  ASSERT_THROW(diffractogram->get_num_of_pixels(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_num_of_pixels(11), std::invalid_argument);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 0);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(10), 0);
+  ASSERT_THROW(diffractogram->get_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_counts(11), std::invalid_argument);
+  ASSERT_EQ(diffractogram->get_counts(0), 0);
+  ASSERT_EQ(diffractogram->get_counts(10), 0);
+
+  diffractogram->init(5.0, 10.0, 0.5);
+  ASSERT_EQ(diffractogram->get_length(), 11);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle_min(), 5.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle_max(), 10.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_step(), 0.5);
+  ASSERT_THROW(diffractogram->get_angle(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_angle(11), std::invalid_argument);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle(0), 5.0);
+  ASSERT_FLOAT_EQ(diffractogram->get_angle(10), 10.0);
+  ASSERT_THROW(diffractogram->get_num_of_pixels(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_num_of_pixels(11), std::invalid_argument);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 0);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(10), 0);
+  ASSERT_THROW(diffractogram->get_counts(-1), std::invalid_argument);
+  ASSERT_THROW(diffractogram->get_counts(11), std::invalid_argument);
+  ASSERT_EQ(diffractogram->get_counts(0), 0);
+  ASSERT_EQ(diffractogram->get_counts(10), 0);
+  for(int i=0; i<diffractogram->get_length(); i++) {
+    ASSERT_EQ(diffractogram->get_num_of_pixels(i), 0);
+    ASSERT_EQ(diffractogram->get_counts(i), 0);
+  }
+  diffractogram->add_counts(4.7499, 5);
+  for(int i=0; i<diffractogram->get_length(); i++) {
+    ASSERT_EQ(diffractogram->get_num_of_pixels(i), 0);
+    ASSERT_EQ(diffractogram->get_counts(i), 0);
+  }
+  diffractogram->add_counts(10.2501, 5);
+  for(int i=0; i<diffractogram->get_length(); i++) {
+    ASSERT_EQ(diffractogram->get_num_of_pixels(i), 0);
+    ASSERT_EQ(diffractogram->get_counts(i), 0);
+  }
+  diffractogram->add_counts(4.7501, 5);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 1);
+  ASSERT_EQ(diffractogram->get_counts(0), 5);
+  diffractogram->add_counts(10.2499, 7);
+  ASSERT_EQ(diffractogram->get_num_of_pixels(0), 1);
+  ASSERT_EQ(diffractogram->get_counts(10), 7);
+
+
+
+  delete diffractogram;
 }
 
 int main(int argc, char** argv) {

@@ -22,6 +22,8 @@ namespace utils {
   float square(float number);
       // Calculates the square of a float. Just to avoid calculating
       // the number twice like (some caclulation) * (same calculation).
+  int float_equal(float a, float b);
+      // Tests whether a and b differ less than cFloatDelta (in const.cpp).
 }
 
 

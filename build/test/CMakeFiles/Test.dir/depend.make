@@ -11,6 +11,11 @@ test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o: ../src/DetectorImage.cpp
 test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o: ../src/DetectorImage.h
 test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o: ../src/utils.h
 
+test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o: ../src/Diffractogram.cpp
+test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o: ../src/Diffractogram.h
+test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o: ../src/const.cpp
+test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o: ../src/utils.h
+
 test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o: ../src/Geometry.cpp
 test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o: ../src/Geometry.h
 test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o: ../src/const.cpp
@@ -34,6 +39,7 @@ test/CMakeFiles/Test.dir/__/src/utils.cpp.o: ../src/utils.h
 
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Action.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/DetectorImage.h
+test/CMakeFiles/Test.dir/test.cpp.o: ../src/Diffractogram.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Geometry.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/List.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Parameters.h

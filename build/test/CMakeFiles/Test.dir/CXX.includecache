@@ -44,6 +44,28 @@ utils.h
 
 /home/froehlich/singlepowder/src/DetectorImage.h
 
+/home/froehlich/singlepowder/src/Diffractogram.cpp
+iostream
+-
+fstream
+-
+unistd.h
+-
+string
+-
+vector
+-
+cmath
+-
+const.cpp
+/home/froehlich/singlepowder/src/const.cpp
+utils.h
+/home/froehlich/singlepowder/src/utils.h
+Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
+
+/home/froehlich/singlepowder/src/Diffractogram.h
+
 /home/froehlich/singlepowder/src/Geometry.cpp
 iostream
 -
@@ -119,6 +141,8 @@ string
 -
 vector
 -
+cmath
+-
 const.cpp
 /home/froehlich/singlepowder/src/const.cpp
 utils.h
@@ -145,4 +169,6 @@ gtest/gtest.h
 /home/froehlich/singlepowder/src/List.h
 ../src/Geometry.h
 /home/froehlich/singlepowder/src/Geometry.h
+../src/Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
 

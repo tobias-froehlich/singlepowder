@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cmath>
 #include "const.cpp"
 #include "utils.h"
 
@@ -75,3 +76,6 @@ float utils::square(float number) {
   return number * number;
 }
 
+int utils::float_equal(float a, float b) {
+  return (std::abs(a - b) < cFloatDelta);
+}
