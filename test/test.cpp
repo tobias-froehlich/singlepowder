@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 #include "../src/const.cpp"
 #include "../src/utils.h"
+#include "../src/Vector.h"
 #include "../src/DetectorImage.h"
 #include "../src/Parameters.h"
 #include "../src/Action.h"
@@ -75,6 +76,19 @@ TEST(DetectorImage, create_and_delete) {
   delete detector_image;
 }
 
+TEST(Vector, create_and_delete) {
+  Vector* vector;
+  vector = new Vector();
+  delete vector;
+}
+
+TEST(Vector, set_and_get) {
+  Vector vector;
+  vector.set_components(1.0, 2.0, 3.0);
+  ASSERT_FLOAT_EQ(vector.get_component1(), 1.0);
+  ASSERT_FLOAT_EQ(vector.get_component2(), 2.0);
+  ASSERT_FLOAT_EQ(vector.get_component3(), 3.0);
+}
 
 TEST(DetectorImage, read_file_file_missing) {
   DetectorImage* detector_image;

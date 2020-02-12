@@ -14,7 +14,9 @@ List::List() {
 }
 
 List::~List() {
-
+  for (Action* action : zActions) {
+    delete action;
+  }
 }
 
 void List::set_datadirectory(std::string datadirectory) {
