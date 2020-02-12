@@ -33,7 +33,7 @@ void List::read_file(std::string filename) {
 
   reader.open(filename.c_str());
   if ( ! reader ) {
-    throw std::invalid_argument("File does not exist!");
+    throw std::invalid_argument("List file does not exist!");
   }
 
   while (getline(reader, line)) {

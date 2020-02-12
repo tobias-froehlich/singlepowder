@@ -4,8 +4,8 @@
 #include <string>
 #include <vector>
 #include "const.cpp"
-#include "Parameters.h"
 #include "utils.h"
+#include "Parameters.h"
 
 Parameters::Parameters() {
 
@@ -70,7 +70,7 @@ void Parameters::read_file(std::string filename) {
 
   reader.open(filename.c_str());
   if ( ! reader ) {
-    throw std::invalid_argument("File does not exist!");
+    throw std::invalid_argument("Parameter file does not exist!");
   }
 
   while (getline(reader, line)) {
@@ -83,12 +83,30 @@ void Parameters::read_file(std::string filename) {
       else if (parametername == "pixel_height") {
         zPixelHeight = read_float_parameter(line);
       }
+      else if (parametername == "centre_pixel_x") {
+        zCentrePixelX = read_float_parameter(line);
+      }
+      else if (parametername == "centre_pixel_y") {
+        zCentrePixelY = read_float_parameter(line);
+      }
+      else if (parametername == "angle_min") {
+        zAngleMin = read_float_parameter(line);
+      }
+      else if (parametername == "angle_max") {
+        zAngleMax = read_float_parameter(line);
+      }
+      else if (parametername == "step") {
+        zStep = read_float_parameter(line);
+      }
       else if (parametername == "image_list_filename") {
         zImageListFilename = read_str_parameter(line);
       }
       else if (parametername == "data_directory") {
         zDataDirectory = read_str_parameter(line);
-      }    
+      }
+      else if (parametername == "output_filename") {
+        zOutputFilename = read_str_parameter(line);
+      }
     }
   }
 }
@@ -101,10 +119,34 @@ float Parameters::get_pixel_height() {
   return zPixelHeight;
 }
 
+float Parameters::get_centre_pixel_x() {
+  return zCentrePixelX;
+}
+
+float Parameters::get_centre_pixel_y() {
+  return zCentrePixelY;
+}
+
+float Parameters::get_angle_min() {
+  return zAngleMin;
+}
+
+float Parameters::get_angle_max() {
+  return zAngleMax;
+}
+
+float Parameters::get_step() {
+  return zStep;
+}
+
 std::string Parameters::get_image_list_filename() {
   return zImageListFilename;
 }
 
 std::string Parameters::get_data_directory() {
   return zDataDirectory;
+}
+
+std::string Parameters::get_output_filename() {
+  return zOutputFilename;
 }

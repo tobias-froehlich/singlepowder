@@ -24,7 +24,7 @@ void DetectorImage::read_file(std::string filename) {
 
   reader.open(filename.c_str());
   if ( ! reader ) {
-    throw std::invalid_argument("File does not exist!");
+    throw std::invalid_argument("Detector-Image file does not exist!");
   }
   while (getline(reader, line)) {
     if (line[7] == ':') {

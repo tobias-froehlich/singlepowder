@@ -88,6 +88,32 @@ Geometry.h
 
 /home/froehlich/singlepowder/src/Geometry.h
 
+/home/froehlich/singlepowder/src/Integrator.cpp
+string
+-
+vector
+-
+const.cpp
+/home/froehlich/singlepowder/src/const.cpp
+utils.h
+/home/froehlich/singlepowder/src/utils.h
+Parameters.h
+/home/froehlich/singlepowder/src/Parameters.h
+DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
+Action.h
+/home/froehlich/singlepowder/src/Action.h
+List.h
+/home/froehlich/singlepowder/src/List.h
+Geometry.h
+/home/froehlich/singlepowder/src/Geometry.h
+Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
+Integrator.h
+/home/froehlich/singlepowder/src/Integrator.h
+
+/home/froehlich/singlepowder/src/Integrator.h
+
 /home/froehlich/singlepowder/src/List.cpp
 iostream
 -
@@ -125,10 +151,10 @@ vector
 -
 const.cpp
 /home/froehlich/singlepowder/src/const.cpp
-Parameters.h
-/home/froehlich/singlepowder/src/Parameters.h
 utils.h
 /home/froehlich/singlepowder/src/utils.h
+Parameters.h
+/home/froehlich/singlepowder/src/Parameters.h
 
 /home/froehlich/singlepowder/src/Parameters.h
 
@@ -171,4 +197,6 @@ gtest/gtest.h
 /home/froehlich/singlepowder/src/Geometry.h
 ../src/Diffractogram.h
 /home/froehlich/singlepowder/src/Diffractogram.h
+../src/Integrator.h
+/home/froehlich/singlepowder/src/Integrator.h
 

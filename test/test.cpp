@@ -8,6 +8,7 @@
 #include "../src/List.h"
 #include "../src/Geometry.h"
 #include "../src/Diffractogram.h"
+#include "../src/Integrator.h"
 
 TEST(utils, split) {
   std::string str;
@@ -162,8 +163,14 @@ TEST(Parameters, read_file) {
   parameters->read_file("../../test/testdata/parameters.txt");
   ASSERT_FLOAT_EQ(parameters->get_pixel_width(), 0.12);
   ASSERT_FLOAT_EQ(parameters->get_pixel_height(), 0.12);
-  ASSERT_EQ(parameters->get_image_list_filename(), "images.txt");
-  ASSERT_EQ(parameters->get_data_directory(), "/home/froehlich/TD015S001apex004/");
+  ASSERT_FLOAT_EQ(parameters->get_centre_pixel_x(), 258.0);
+  ASSERT_FLOAT_EQ(parameters->get_centre_pixel_y(), 266.0);
+  ASSERT_FLOAT_EQ(parameters->get_angle_min(), 5.0);
+  ASSERT_FLOAT_EQ(parameters->get_angle_max(), 10.0);
+  ASSERT_FLOAT_EQ(parameters->get_step(), 0.1);
+  ASSERT_EQ(parameters->get_image_list_filename(), "../../test/testdata/images.txt");
+  ASSERT_EQ(parameters->get_data_directory(), "/home/froehlich/singlepowder_test/TD015S001apex004/");
+  ASSERT_EQ(parameters->get_output_filename(), "../../test/testdata/output.txt");
   delete parameters;
 }
 
@@ -238,7 +245,7 @@ TEST(List, read_file) {
   list = new List();
   ASSERT_THROW(list->read_file("does_no_exist.txt"), std::invalid_argument);
   list->set_datadirectory("../../test/testdata/");
-  list->read_file("../../test/testdata/list.txt");
+  list->read_file("../../test/testdata/images.txt");
   ASSERT_FLOAT_EQ(list->get_actions()[0]->get_twotheta(), 0.0);
   ASSERT_FLOAT_EQ(list->get_actions()[0]->get_theta(), 0.0);
   ASSERT_FLOAT_EQ(list->get_actions()[0]->get_chi(), 0.0);
@@ -444,6 +451,19 @@ TEST(Diffractogram, write_file) {
   diffractogram->add_counts(7.0, 3);
   diffractogram->write_file("../../test/testdata/output.txt");
   delete diffractogram;
+}
+
+TEST(Integrator, create_and_delete) {
+  Integrator* integrator;
+  integrator = new Integrator();
+  delete integrator;
+}
+
+TEST(Integrator, integrate) {
+  Integrator* integrator;
+  integrator = new Integrator();
+  integrator->integrate("../../test/testdata/parameters.txt");
+  delete integrator;
 }
 
 int main(int argc, char** argv) {

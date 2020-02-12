@@ -125,6 +125,222 @@ singlepowder/fast:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/build
 .PHONY : singlepowder/fast
 
+Action.o: Action.cpp.o
+
+.PHONY : Action.o
+
+# target to build an object file
+Action.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Action.cpp.o
+.PHONY : Action.cpp.o
+
+Action.i: Action.cpp.i
+
+.PHONY : Action.i
+
+# target to preprocess a source file
+Action.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Action.cpp.i
+.PHONY : Action.cpp.i
+
+Action.s: Action.cpp.s
+
+.PHONY : Action.s
+
+# target to generate assembly for a file
+Action.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Action.cpp.s
+.PHONY : Action.cpp.s
+
+DetectorImage.o: DetectorImage.cpp.o
+
+.PHONY : DetectorImage.o
+
+# target to build an object file
+DetectorImage.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/DetectorImage.cpp.o
+.PHONY : DetectorImage.cpp.o
+
+DetectorImage.i: DetectorImage.cpp.i
+
+.PHONY : DetectorImage.i
+
+# target to preprocess a source file
+DetectorImage.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/DetectorImage.cpp.i
+.PHONY : DetectorImage.cpp.i
+
+DetectorImage.s: DetectorImage.cpp.s
+
+.PHONY : DetectorImage.s
+
+# target to generate assembly for a file
+DetectorImage.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/DetectorImage.cpp.s
+.PHONY : DetectorImage.cpp.s
+
+Diffractogram.o: Diffractogram.cpp.o
+
+.PHONY : Diffractogram.o
+
+# target to build an object file
+Diffractogram.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Diffractogram.cpp.o
+.PHONY : Diffractogram.cpp.o
+
+Diffractogram.i: Diffractogram.cpp.i
+
+.PHONY : Diffractogram.i
+
+# target to preprocess a source file
+Diffractogram.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Diffractogram.cpp.i
+.PHONY : Diffractogram.cpp.i
+
+Diffractogram.s: Diffractogram.cpp.s
+
+.PHONY : Diffractogram.s
+
+# target to generate assembly for a file
+Diffractogram.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Diffractogram.cpp.s
+.PHONY : Diffractogram.cpp.s
+
+Geometry.o: Geometry.cpp.o
+
+.PHONY : Geometry.o
+
+# target to build an object file
+Geometry.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Geometry.cpp.o
+.PHONY : Geometry.cpp.o
+
+Geometry.i: Geometry.cpp.i
+
+.PHONY : Geometry.i
+
+# target to preprocess a source file
+Geometry.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Geometry.cpp.i
+.PHONY : Geometry.cpp.i
+
+Geometry.s: Geometry.cpp.s
+
+.PHONY : Geometry.s
+
+# target to generate assembly for a file
+Geometry.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Geometry.cpp.s
+.PHONY : Geometry.cpp.s
+
+Integrator.o: Integrator.cpp.o
+
+.PHONY : Integrator.o
+
+# target to build an object file
+Integrator.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Integrator.cpp.o
+.PHONY : Integrator.cpp.o
+
+Integrator.i: Integrator.cpp.i
+
+.PHONY : Integrator.i
+
+# target to preprocess a source file
+Integrator.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Integrator.cpp.i
+.PHONY : Integrator.cpp.i
+
+Integrator.s: Integrator.cpp.s
+
+.PHONY : Integrator.s
+
+# target to generate assembly for a file
+Integrator.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Integrator.cpp.s
+.PHONY : Integrator.cpp.s
+
+List.o: List.cpp.o
+
+.PHONY : List.o
+
+# target to build an object file
+List.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/List.cpp.o
+.PHONY : List.cpp.o
+
+List.i: List.cpp.i
+
+.PHONY : List.i
+
+# target to preprocess a source file
+List.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/List.cpp.i
+.PHONY : List.cpp.i
+
+List.s: List.cpp.s
+
+.PHONY : List.s
+
+# target to generate assembly for a file
+List.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/List.cpp.s
+.PHONY : List.cpp.s
+
+Parameters.o: Parameters.cpp.o
+
+.PHONY : Parameters.o
+
+# target to build an object file
+Parameters.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Parameters.cpp.o
+.PHONY : Parameters.cpp.o
+
+Parameters.i: Parameters.cpp.i
+
+.PHONY : Parameters.i
+
+# target to preprocess a source file
+Parameters.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Parameters.cpp.i
+.PHONY : Parameters.cpp.i
+
+Parameters.s: Parameters.cpp.s
+
+.PHONY : Parameters.s
+
+# target to generate assembly for a file
+Parameters.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Parameters.cpp.s
+.PHONY : Parameters.cpp.s
+
+const.o: const.cpp.o
+
+.PHONY : const.o
+
+# target to build an object file
+const.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/const.cpp.o
+.PHONY : const.cpp.o
+
+const.i: const.cpp.i
+
+.PHONY : const.i
+
+# target to preprocess a source file
+const.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/const.cpp.i
+.PHONY : const.cpp.i
+
+const.s: const.cpp.s
+
+.PHONY : const.s
+
+# target to generate assembly for a file
+const.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/const.cpp.s
+.PHONY : const.cpp.s
+
 singlepowder.o: singlepowder.cpp.o
 
 .PHONY : singlepowder.o
@@ -152,6 +368,33 @@ singlepowder.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/singlepowder.cpp.s
 .PHONY : singlepowder.cpp.s
 
+utils.o: utils.cpp.o
+
+.PHONY : utils.o
+
+# target to build an object file
+utils.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/utils.cpp.o
+.PHONY : utils.cpp.o
+
+utils.i: utils.cpp.i
+
+.PHONY : utils.i
+
+# target to preprocess a source file
+utils.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/utils.cpp.i
+.PHONY : utils.cpp.i
+
+utils.s: utils.cpp.s
+
+.PHONY : utils.s
+
+# target to generate assembly for a file
+utils.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/utils.cpp.s
+.PHONY : utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -161,9 +404,36 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... singlepowder"
+	@echo "... Action.o"
+	@echo "... Action.i"
+	@echo "... Action.s"
+	@echo "... DetectorImage.o"
+	@echo "... DetectorImage.i"
+	@echo "... DetectorImage.s"
+	@echo "... Diffractogram.o"
+	@echo "... Diffractogram.i"
+	@echo "... Diffractogram.s"
+	@echo "... Geometry.o"
+	@echo "... Geometry.i"
+	@echo "... Geometry.s"
+	@echo "... Integrator.o"
+	@echo "... Integrator.i"
+	@echo "... Integrator.s"
+	@echo "... List.o"
+	@echo "... List.i"
+	@echo "... List.s"
+	@echo "... Parameters.o"
+	@echo "... Parameters.i"
+	@echo "... Parameters.s"
+	@echo "... const.o"
+	@echo "... const.i"
+	@echo "... const.s"
 	@echo "... singlepowder.o"
 	@echo "... singlepowder.i"
 	@echo "... singlepowder.s"
+	@echo "... utils.o"
+	@echo "... utils.i"
+	@echo "... utils.s"
 .PHONY : help
 
 

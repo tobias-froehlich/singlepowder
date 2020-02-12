@@ -1,1 +1,12 @@
-add_executable(singlepowder singlepowder.cpp)
+add_executable(singlepowder 
+  singlepowder.cpp
+  const.cpp
+  utils.cpp
+  Parameters.cpp
+  List.cpp
+  Action.cpp
+  DetectorImage.cpp
+  Geometry.cpp
+  Diffractogram.cpp
+  Integrator.cpp
+)

@@ -1,5 +1,14 @@
 file(REMOVE_RECURSE
   "CMakeFiles/singlepowder.dir/singlepowder.cpp.o"
+  "CMakeFiles/singlepowder.dir/const.cpp.o"
+  "CMakeFiles/singlepowder.dir/utils.cpp.o"
+  "CMakeFiles/singlepowder.dir/Parameters.cpp.o"
+  "CMakeFiles/singlepowder.dir/List.cpp.o"
+  "CMakeFiles/singlepowder.dir/Action.cpp.o"
+  "CMakeFiles/singlepowder.dir/DetectorImage.cpp.o"
+  "CMakeFiles/singlepowder.dir/Geometry.cpp.o"
+  "CMakeFiles/singlepowder.dir/Diffractogram.cpp.o"
+  "CMakeFiles/singlepowder.dir/Integrator.cpp.o"
   "singlepowder.pdb"
   "singlepowder"
 )

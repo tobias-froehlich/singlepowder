@@ -21,6 +21,17 @@ test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o: ../src/Geometry.h
 test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o: ../src/const.cpp
 test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o: ../src/utils.h
 
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/Action.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/DetectorImage.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/Diffractogram.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/Geometry.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/Integrator.cpp
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/Integrator.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/List.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/Parameters.h
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/const.cpp
+test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o: ../src/utils.h
+
 test/CMakeFiles/Test.dir/__/src/List.cpp.o: ../src/Action.h
 test/CMakeFiles/Test.dir/__/src/List.cpp.o: ../src/DetectorImage.h
 test/CMakeFiles/Test.dir/__/src/List.cpp.o: ../src/List.cpp
@@ -41,6 +52,7 @@ test/CMakeFiles/Test.dir/test.cpp.o: ../src/Action.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/DetectorImage.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Diffractogram.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Geometry.h
+test/CMakeFiles/Test.dir/test.cpp.o: ../src/Integrator.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/List.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Parameters.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/const.cpp

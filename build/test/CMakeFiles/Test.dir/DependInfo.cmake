@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/froehlich/singlepowder/src/DetectorImage.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/DetectorImage.cpp.o"
   "/home/froehlich/singlepowder/src/Diffractogram.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o"
   "/home/froehlich/singlepowder/src/Geometry.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Geometry.cpp.o"
+  "/home/froehlich/singlepowder/src/Integrator.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Integrator.cpp.o"
   "/home/froehlich/singlepowder/src/List.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/List.cpp.o"
   "/home/froehlich/singlepowder/src/Parameters.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o"
   "/home/froehlich/singlepowder/src/utils.cpp" "/home/froehlich/singlepowder/build/test/CMakeFiles/Test.dir/__/src/utils.cpp.o"
