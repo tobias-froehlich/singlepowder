@@ -9,5 +9,5 @@ angle_max             10.0
 step                  0.1
 
 image_list_filename   ../../test/testdata/images.txt # list of images
-data_directory        /home/froehlich/singlepowder_test/TD015S001apex004/
+data_directory        ../../test/testdata/
 output_filename       ../../test/testdata/output.txt

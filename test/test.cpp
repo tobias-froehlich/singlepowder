@@ -169,7 +169,7 @@ TEST(Parameters, read_file) {
   ASSERT_FLOAT_EQ(parameters->get_angle_max(), 10.0);
   ASSERT_FLOAT_EQ(parameters->get_step(), 0.1);
   ASSERT_EQ(parameters->get_image_list_filename(), "../../test/testdata/images.txt");
-  ASSERT_EQ(parameters->get_data_directory(), "/home/froehlich/singlepowder_test/TD015S001apex004/");
+  ASSERT_EQ(parameters->get_data_directory(), "../../test/testdata/");
   ASSERT_EQ(parameters->get_output_filename(), "../../test/testdata/output.txt");
   delete parameters;
 }
