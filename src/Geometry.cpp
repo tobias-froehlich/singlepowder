@@ -69,14 +69,12 @@ float Geometry::calculate_powderangle(int pixel_x, int pixel_y) {
   float delta_y = ((float)pixel_y - zCentrePixelY) * zPixelHeight;
   float cos = std::cos(zTwotheta * cPiOver180);
   float sin = std::sin(zTwotheta * cPiOver180);
-  float numerator = zDetectorDistance * (zDetectorDistance * cos + delta_x * sin);
+  float numerator = zDetectorDistance * cos + delta_x * sin;
   float denominator = std::sqrt(
-    (
       utils::square(zDetectorDistance * cos + delta_x * sin) 
       + utils::square(zDetectorDistance * sin - delta_x * cos)
       + utils::square(delta_y)
-    )
-  ) * zDetectorDistance;
+    );
   float fraction = numerator / denominator;
   float powderangle = std::acos(fraction) * c180OverPi;
 }

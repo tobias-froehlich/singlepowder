@@ -7,15 +7,15 @@
 // It is assumed that between the values of two pixels in the data file 
 // there is either a space or a line break.
 //
-// The indices for the pixels in the get_pixe(icol, irow) are compatible
+// The indices for the pixels in the get_pixe(pixel_x, pixel_y) are compatible
 // with graphical interface in the APEX Client software:
 //
-//    irow
+//    pixel_y
 //      ^
 //      |
 //      |
 //      |
-//    (0,0)-------> icol
+//    (0,0)-------> pixel_x
 
 
 #ifndef DETECTORIMAGE_H_
@@ -30,7 +30,7 @@ class DetectorImage {
     DetectorImage();
     ~DetectorImage();
     void read_file(std::string filename); // Reads the detecor image from file.
-    int get_pixel(int icol, int irow); // Returns the value of a pixel.
+    int get_pixel(int pixel_x, int pixel_y); // Returns the value of a pixel.
 };
 
 #endif

@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_51cb5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_51cb5.dir/build.make CMakeFiles/cmTC_51cb5.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_26844/fast"
+/usr/bin/make -f CMakeFiles/cmTC_26844.dir/build.make CMakeFiles/cmTC_26844.dir/build
 make[1]: Entering directory '/home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_51cb5.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_51cb5.dir/CheckSymbolExists.c.o   -c /home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_51cb5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51cb5.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_51cb5.dir/CheckSymbolExists.c.o  -o cmTC_51cb5 
-CMakeFiles/cmTC_51cb5.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_26844.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_26844.dir/CheckSymbolExists.c.o   -c /home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_26844
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26844.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_26844.dir/CheckSymbolExists.c.o  -o cmTC_26844 
+CMakeFiles/cmTC_26844.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_51cb5.dir/build.make:97: recipe for target 'cmTC_51cb5' failed
-make[1]: *** [cmTC_51cb5] Error 1
+CMakeFiles/cmTC_26844.dir/build.make:97: recipe for target 'cmTC_26844' failed
+make[1]: *** [cmTC_26844] Error 1
 make[1]: Leaving directory '/home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_51cb5/fast' failed
-make: *** [cmTC_51cb5/fast] Error 2
+Makefile:126: recipe for target 'cmTC_26844/fast' failed
+make: *** [cmTC_26844/fast] Error 2
 
 File /home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_18421/fast"
-/usr/bin/make -f CMakeFiles/cmTC_18421.dir/build.make CMakeFiles/cmTC_18421.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0d374/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0d374.dir/build.make CMakeFiles/cmTC_0d374.dir/build
 make[1]: Entering directory '/home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_18421.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_18421.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_18421
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_18421.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_18421.dir/CheckFunctionExists.c.o  -o cmTC_18421 -lpthreads 
+Building C object CMakeFiles/cmTC_0d374.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0d374.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_0d374
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d374.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_0d374.dir/CheckFunctionExists.c.o  -o cmTC_0d374 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_18421.dir/build.make:97: recipe for target 'cmTC_18421' failed
-make[1]: *** [cmTC_18421] Error 1
+CMakeFiles/cmTC_0d374.dir/build.make:97: recipe for target 'cmTC_0d374' failed
+make[1]: *** [cmTC_0d374] Error 1
 make[1]: Leaving directory '/home/froehlich/singlepowder/build/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_18421/fast' failed
-make: *** [cmTC_18421/fast] Error 2
+Makefile:126: recipe for target 'cmTC_0d374/fast' failed
+make: *** [cmTC_0d374/fast] Error 2
 
 
