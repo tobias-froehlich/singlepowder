@@ -171,6 +171,7 @@ TEST(Parameters, read_file) {
   ASSERT_EQ(parameters->get_image_list_filename(), "../../test/testdata/images.txt");
   ASSERT_EQ(parameters->get_data_directory(), "../../test/testdata/");
   ASSERT_EQ(parameters->get_output_filename(), "../../test/testdata/output.txt");
+  ASSERT_EQ(parameters->get_output_format(), "detailed");
   delete parameters;
 }
 
@@ -364,7 +365,9 @@ TEST(Diffractogram, create_and_delete) {
 TEST(Diffractogram, init) {
   Diffractogram* diffractogram;
   diffractogram = new Diffractogram();
-  
+ 
+  ASSERT_THROW(diffractogram->set_output_format("invalidformat"), std::invalid_argument);
+
   ASSERT_THROW(diffractogram->init(0.0, 10.0, -0.1), std::invalid_argument);
   ASSERT_THROW(diffractogram->init(0.0, 10.0, 0.0), std::invalid_argument);
 

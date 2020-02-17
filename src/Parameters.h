@@ -13,6 +13,7 @@ class Parameters {
     std::string zImageListFilename = "";
     std::string zDataDirectory = "";
     std::string zOutputFilename = "";
+    std::string zOutputFormat = "";
   public:
     Parameters();
     ~Parameters();
@@ -35,6 +36,7 @@ class Parameters {
     std::string get_image_list_filename();
     std::string get_data_directory();
     std::string get_output_filename();
+    std::string get_output_format();
 };
 
 #endif

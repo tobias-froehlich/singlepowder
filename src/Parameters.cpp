@@ -107,6 +107,9 @@ void Parameters::read_file(std::string filename) {
       else if (parametername == "output_filename") {
         zOutputFilename = read_str_parameter(line);
       }
+      else if (parametername == "output_format") {
+        zOutputFormat = read_str_parameter(line);
+      }
     }
   }
 }
@@ -149,4 +152,8 @@ std::string Parameters::get_data_directory() {
 
 std::string Parameters::get_output_filename() {
   return zOutputFilename;
+}
+
+std::string Parameters::get_output_format() {
+  return zOutputFormat;
 }

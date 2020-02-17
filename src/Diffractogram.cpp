@@ -44,6 +44,13 @@ void Diffractogram::init(float angle_min, float angle_max, float step) {
   zStep = step;
 }
 
+void Diffractogram::set_output_format(std::string output_format) {
+  zOutputFormat = output_format;
+  if ((zOutputFormat != "standard") && (zOutputFormat != "detailed")) {
+    throw std::invalid_argument("output format not known.");
+  }
+}
+
 int Diffractogram::get_length() {
   return zLength;
 }
@@ -120,28 +127,46 @@ void Diffractogram::calculate_intensities_and_errors() {
 
 void Diffractogram::write_file(std::string filename) {
   std::ofstream file(filename.c_str());
-  int columnwidth = 29;
-  int precision = 10;
+  int columnwidth = 0;
+  int precision = 0;
   if (!(file.is_open())) {
     throw std::invalid_argument("Cannot open file for writing.");
   }
-  file << std::fixed;
-  file << "#";
-  file << std::setw(columnwidth-1) << "angle ";
-  file << std::setw(columnwidth) << "sum_of_weights ";
-  file << std::setw(columnwidth) << "sum_of_weighted_counts ";
-  file << std::setw(columnwidth) << "sum_of_squareweighted_counts ";
-  file << std::setw(columnwidth) << "intensity ";
-  file << std::setw(columnwidth) << "error ";
-  file << "\n";
-  for(int i = 0; i < zLength; i++) {
-    file << std::setw(columnwidth-1) << std::setprecision(precision) << zAngles[i] << " ";
-    file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeights[i] << " ";
-    file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeightedCounts[i] << " ";
-    file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfSquareweightedCounts[i] << " ";
-    file << std::setw(columnwidth-1) << std::setprecision(precision) << zIntensities[i] << " ";
-    file << std::setw(columnwidth-1) << std::setprecision(precision) << zErrors[i] << " ";
-    file << '\n';
+  if (zOutputFormat == "detailed") {
+    columnwidth = 29;
+    precision = 10;
+    file << std::fixed;
+    file << "#";
+    file << std::setw(columnwidth-1) << "angle ";
+    file << std::setw(columnwidth) << "sum_of_weights ";
+    file << std::setw(columnwidth) << "sum_of_weighted_counts ";
+    file << std::setw(columnwidth) << "sum_of_squareweighted_counts ";
+    file << std::setw(columnwidth) << "intensity ";
+    file << std::setw(columnwidth) << "error ";
+    file << "\n";
+    for(int i = 0; i < zLength; i++) {
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zAngles[i] << " ";
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeights[i] << " ";
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeightedCounts[i] << " ";
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfSquareweightedCounts[i] << " ";
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zIntensities[i] << " ";
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zErrors[i] << " ";
+      file << '\n';
+    }
+  }
+  else if (zOutputFormat == "standard") {
+    columnwidth = 12;
+    precision = 3;
+    file << std::fixed;
+    file << "#";
+    file << std::setw(columnwidth-1) << "angle ";
+    file << std::setw(columnwidth) << "intensity ";
+    file << "\n";
+    for(int i = 0; i < zLength; i++) {
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zAngles[i] << " ";
+      file << std::setw(columnwidth-1) << std::setprecision(precision) << zIntensities[i] << " ";
+      file << '\n';
+    }
   }
   file.close();
 }

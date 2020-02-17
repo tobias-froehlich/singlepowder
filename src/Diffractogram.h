@@ -7,6 +7,7 @@ class Diffractogram {
     float zAngleMin;
     float zAngleMax;
     float zStep;
+    std::string zOutputFormat = "";
     std::vector< float > zAngles{};
     std::vector< float > zSumOfWeights{};
     std::vector< float > zSumOfWeightedCounts{};
@@ -17,6 +18,7 @@ class Diffractogram {
     Diffractogram();
     ~Diffractogram();
     void init(float angle_min, float angle_max, float step);
+    void set_output_format(std::string output_format);
     int get_length();
     float get_angle_min();
     float get_angle_max();

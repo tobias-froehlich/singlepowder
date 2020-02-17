@@ -48,6 +48,7 @@ void Integrator::integrate(std::string parameterfilename) {
     zParameters->get_angle_max(),
     zParameters->get_step()
   );
+  zDiffractogram->set_output_format(zParameters->get_output_format());
 
   // Loop over all images and all pixels to collect
   // the counts etc.:
