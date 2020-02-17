@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <vector>
 #include "const.cpp"
@@ -25,28 +26,42 @@ Integrator::~Integrator() {
 }
 
 void Integrator::integrate(std::string parameterfilename) {
+  // Read the parameter file:
   zParameters->read_file(parameterfilename);
 
+  // Pass the geometric parameters to zGeometry:
   zGeometry->set_pixel_width(zParameters->get_pixel_width());
   zGeometry->set_pixel_height(zParameters->get_pixel_height());
   zGeometry->set_centre_pixel_x(zParameters->get_centre_pixel_x());
   zGeometry->set_centre_pixel_y(zParameters->get_centre_pixel_y());
 
+  // Pass the data directory to zList:
   zList->set_datadirectory(zParameters->get_data_directory());
+
+  // Read the list file, and zList calls the zActions
+  // to read the image files:
   zList->read_file(zParameters->get_image_list_filename());
 
+  // initialize zDiffractogram:
   zDiffractogram->init(
     zParameters->get_angle_min(),
     zParameters->get_angle_max(),
     zParameters->get_step()
   );
 
+  // Loop over all images and all pixels to collect
+  // the counts etc.:
   std::vector<Action*> actions = zList->get_actions();
+
   DetectorImage* detectorimage;
   int counts;
   float angle;
   float weight;
+
+  int i = 0;
   for (Action* action : actions) {
+    i += 1;
+    std::cout << "Processing image " << i << " of " << zList->get_length() << "\n";
     detectorimage = action->get_detectorimage();
     weight = action->get_weight();
     zGeometry->set_detector_distance(action->get_detectordistance());
@@ -59,6 +74,11 @@ void Integrator::integrate(std::string parameterfilename) {
       }
     }
   }
+
+  // Calculate intensities with error propagation:
   zDiffractogram->calculate_intensities_and_errors();
+
+  // Write output file:
   zDiffractogram->write_file(zParameters->get_output_filename());
+  std::cout << "Outputfile written successfully.\n";
 }
