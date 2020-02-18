@@ -31,6 +31,8 @@ class DetectorImage {
     ~DetectorImage();
     void read_file(std::string filename); // Reads the detecor image from file.
     int get_pixel(int pixel_x, int pixel_y); // Returns the value of a pixel.
+    int get_num_of_rows();
+    int get_num_of_cols();
 };
 
 #endif

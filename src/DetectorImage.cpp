@@ -49,6 +49,8 @@ void DetectorImage::read_file(std::string filename) {
   reader.close();
 }
 
+
+
 int DetectorImage::get_pixel(int pixel_x, int pixel_y) {
   if ((pixel_y < 0) || (pixel_y >= zNRows) || (pixel_x < 0) || (pixel_x >= zNCols)) {
     throw std::invalid_argument("Invalid pixel indizes");
@@ -56,4 +58,10 @@ int DetectorImage::get_pixel(int pixel_x, int pixel_y) {
   return  zPixels[zNCols-1-pixel_y][pixel_x];
 }
 
+int DetectorImage::get_num_of_rows() {
+  return zNRows;
+}
 
+int DetectorImage::get_num_of_cols() {
+  return zNCols;
+}

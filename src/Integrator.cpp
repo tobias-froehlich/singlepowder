@@ -69,15 +69,19 @@ void Integrator::integrate(std::string parameterfilename) {
   auto timepoint3 = std::chrono::high_resolution_clock::now();
 
   int i = 0;
+  int num_of_rows;
+  int num_of_cols;
   for (Action* action : actions) {
     i += 1;
     std::cout << "Processing image " << i << " of " << zList->get_length() << "\n";
     detectorimage = action->get_detectorimage();
+    num_of_rows = detectorimage->get_num_of_rows();
+    num_of_cols = detectorimage->get_num_of_cols();
     weight = action->get_weight();
     zGeometry->set_detector_distance(action->get_detectordistance());
     zGeometry->set_twotheta(action->get_twotheta());
-    for (int y=0; y<512; y++) {
-      for (int x=0; x<512; x++) {
+    for (int y=0; y<num_of_rows; y++) {
+      for (int x=0; x<num_of_cols; x++) {
         counts = detectorimage->get_pixel(x, y);
         angle = zGeometry->calculate_powderangle(x, y);
         zDiffractogram->add_counts(angle, counts, weight);

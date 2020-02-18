@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <cmath>
 #include "const.cpp"
 #include "utils.h"
-
 
 std::vector< std::string > utils::split(std::string str, char delimiter) {
     std::vector< std::string > words{};
@@ -24,6 +24,7 @@ std::vector< std::string > utils::split(std::string str, char delimiter) {
     }
     return words;
 }
+
 
 std::vector< std::string > utils::split_equal(std::string str, int size) {
   std::string word = "";

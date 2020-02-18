@@ -101,6 +101,8 @@ TEST(DetectorImage, read_file) {
   detector_image = new DetectorImage();
   detector_image->read_file("../../test/testdata/AR506a_apex001_01_0001.out");
   detector_image->read_file("../../test/testdata/TD015S001apex004_01_0001.out");
+  ASSERT_EQ(detector_image->get_num_of_rows(), 512);
+  ASSERT_EQ(detector_image->get_num_of_cols(), 512);
   delete detector_image;
 }
 
