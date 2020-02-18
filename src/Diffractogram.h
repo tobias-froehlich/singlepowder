@@ -9,6 +9,7 @@ class Diffractogram {
     float zStep;
     std::string zOutputFormat = "";
     std::vector< float > zAngles{};
+    std::vector< int > zNumOfPixels{};
     std::vector< float > zSumOfWeights{};
     std::vector< float > zSumOfWeightedCounts{};
     std::vector< float > zSumOfSquareweightedCounts{};
@@ -24,6 +25,7 @@ class Diffractogram {
     float get_angle_max();
     float get_step();
     float get_angle(int index);
+    int get_num_of_pixels(int index);
     float get_sum_of_weights(int index);
     float get_sum_of_weighted_counts(int index);
     float get_sum_of_squareweighted_counts(int index);

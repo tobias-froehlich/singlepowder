@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <chrono>
 #include "const.cpp"
 #include "utils.h"
 #include "Parameters.h"
@@ -26,6 +27,8 @@ Integrator::~Integrator() {
 }
 
 void Integrator::integrate(std::string parameterfilename) {
+  auto timepoint0 = std::chrono::high_resolution_clock::now();
+
   // Read the parameter file:
   zParameters->read_file(parameterfilename);
 
@@ -38,9 +41,13 @@ void Integrator::integrate(std::string parameterfilename) {
   // Pass the data directory to zList:
   zList->set_datadirectory(zParameters->get_data_directory());
 
+  auto timepoint1 = std::chrono::high_resolution_clock::now();
+
   // Read the list file, and zList calls the zActions
   // to read the image files:
   zList->read_file(zParameters->get_image_list_filename());
+
+  auto timepoint2 = std::chrono::high_resolution_clock::now();
 
   // initialize zDiffractogram:
   zDiffractogram->init(
@@ -59,6 +66,8 @@ void Integrator::integrate(std::string parameterfilename) {
   float angle;
   float weight;
 
+  auto timepoint3 = std::chrono::high_resolution_clock::now();
+
   int i = 0;
   for (Action* action : actions) {
     i += 1;
@@ -76,10 +85,20 @@ void Integrator::integrate(std::string parameterfilename) {
     }
   }
 
+  auto timepoint4 = std::chrono::high_resolution_clock::now();
+
   // Calculate intensities with error propagation:
   zDiffractogram->calculate_intensities_and_errors();
 
   // Write output file:
   zDiffractogram->write_file(zParameters->get_output_filename());
   std::cout << "Outputfile written successfully.\n";
+
+  auto timepoint5 = std::chrono::high_resolution_clock::now();
+
+
+  std::cout << "time for reading list and images: " << std::chrono::duration_cast<std::chrono::milliseconds>(timepoint2 - timepoint1).count() << " milliseconds\n";
+  std::cout << "time processing the images: " << std::chrono::duration_cast<std::chrono::milliseconds>(timepoint4 - timepoint3).count() << " milliseconds\n";
+  std::cout << "total time: " << std::chrono::duration_cast<std::chrono::milliseconds>(timepoint5 - timepoint0).count() << " milliseconds\n";
+
 }

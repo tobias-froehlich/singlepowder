@@ -23,6 +23,7 @@ void Diffractogram::init(float angle_min, float angle_max, float step) {
   }
   zLength = 0;
   zAngles.clear();
+  zNumOfPixels.clear();
   zSumOfWeights.clear();
   zSumOfWeightedCounts.clear();
   zSumOfSquareweightedCounts.clear();
@@ -32,6 +33,7 @@ void Diffractogram::init(float angle_min, float angle_max, float step) {
   while ((angle < angle_max) || (utils::float_equal(angle, angle_max))) {
     zLength += 1;
     zAngles.push_back(angle);
+    zNumOfPixels.push_back(0);
     zSumOfWeights.push_back(0.0);
     zSumOfWeightedCounts.push_back(0.0);
     zSumOfSquareweightedCounts.push_back(0.0);
@@ -74,6 +76,13 @@ float Diffractogram::get_angle(int index) {
   return zAngles[index];
 }
 
+int Diffractogram::get_num_of_pixels(int index) {
+  if ((index < 0) || (index >= zLength)) {
+    throw std::invalid_argument("Index of diffractogram entry out of range.");
+  }
+  return zNumOfPixels[index];
+}
+
 float Diffractogram::get_sum_of_weights(int index) {
   if ((index < 0) || (index >= zLength)) {
     throw std::invalid_argument("Index of diffractogram entry out of range.");
@@ -112,6 +121,7 @@ float Diffractogram::get_error(int index) {
 void Diffractogram::add_counts(float angle, int counts, float weight) {
   int index = std::round((angle - zAngleMin)/zStep);
   if ((index >= 0) && (index < zLength)) {
+    zNumOfPixels[index] += 1;
     zSumOfWeights[index] += weight;
     zSumOfWeightedCounts[index] += weight * (float)counts;
     zSumOfSquareweightedCounts[index] += utils::square(weight) * (float)counts;
@@ -138,6 +148,7 @@ void Diffractogram::write_file(std::string filename) {
     file << std::fixed;
     file << "#";
     file << std::setw(columnwidth-1) << "powder_angle ";
+    file << std::setw(columnwidth) << "num_of_pixels ";
     file << std::setw(columnwidth) << "sum_of_weights ";
     file << std::setw(columnwidth) << "sum_of_weighted_counts ";
     file << std::setw(columnwidth) << "sum_of_squareweighted_counts ";
@@ -146,6 +157,7 @@ void Diffractogram::write_file(std::string filename) {
     file << "\n";
     for(int i = 0; i < zLength; i++) {
       file << std::setw(columnwidth-1) << std::setprecision(precision) << zAngles[i] << " ";
+      file << std::setw(columnwidth-1)                                 << zNumOfPixels[i] << " ";
       file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeights[i] << " ";
       file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeightedCounts[i] << " ";
       file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfSquareweightedCounts[i] << " ";
