@@ -287,6 +287,33 @@ __/src/List.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/List.cpp.s
 .PHONY : __/src/List.cpp.s
 
+__/src/Mask.o: __/src/Mask.cpp.o
+
+.PHONY : __/src/Mask.o
+
+# target to build an object file
+__/src/Mask.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Mask.cpp.o
+.PHONY : __/src/Mask.cpp.o
+
+__/src/Mask.i: __/src/Mask.cpp.i
+
+.PHONY : __/src/Mask.i
+
+# target to preprocess a source file
+__/src/Mask.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Mask.cpp.i
+.PHONY : __/src/Mask.cpp.i
+
+__/src/Mask.s: __/src/Mask.cpp.s
+
+.PHONY : __/src/Mask.s
+
+# target to generate assembly for a file
+__/src/Mask.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f test/CMakeFiles/Test.dir/build.make test/CMakeFiles/Test.dir/__/src/Mask.cpp.s
+.PHONY : __/src/Mask.cpp.s
+
 __/src/Parameters.o: __/src/Parameters.cpp.o
 
 .PHONY : __/src/Parameters.o
@@ -395,6 +422,9 @@ help:
 	@echo "... __/src/List.o"
 	@echo "... __/src/List.i"
 	@echo "... __/src/List.s"
+	@echo "... __/src/Mask.o"
+	@echo "... __/src/Mask.i"
+	@echo "... __/src/Mask.s"
 	@echo "... __/src/Parameters.o"
 	@echo "... __/src/Parameters.i"
 	@echo "... __/src/Parameters.s"

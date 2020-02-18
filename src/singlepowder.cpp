@@ -10,6 +10,7 @@
 #include "List.h"
 #include "Geometry.h"
 #include "Diffractogram.h"
+#include "Mask.h"
 #include "Integrator.h"
 
 int main(int argc, char** argv) {

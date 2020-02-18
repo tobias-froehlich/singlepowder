@@ -287,6 +287,33 @@ List.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/List.cpp.s
 .PHONY : List.cpp.s
 
+Mask.o: Mask.cpp.o
+
+.PHONY : Mask.o
+
+# target to build an object file
+Mask.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Mask.cpp.o
+.PHONY : Mask.cpp.o
+
+Mask.i: Mask.cpp.i
+
+.PHONY : Mask.i
+
+# target to preprocess a source file
+Mask.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Mask.cpp.i
+.PHONY : Mask.cpp.i
+
+Mask.s: Mask.cpp.s
+
+.PHONY : Mask.s
+
+# target to generate assembly for a file
+Mask.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Mask.cpp.s
+.PHONY : Mask.cpp.s
+
 Parameters.o: Parameters.cpp.o
 
 .PHONY : Parameters.o
@@ -422,6 +449,9 @@ help:
 	@echo "... List.o"
 	@echo "... List.i"
 	@echo "... List.s"
+	@echo "... Mask.o"
+	@echo "... Mask.i"
+	@echo "... Mask.s"
 	@echo "... Parameters.o"
 	@echo "... Parameters.i"
 	@echo "... Parameters.s"

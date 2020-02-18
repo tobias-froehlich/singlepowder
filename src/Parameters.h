@@ -12,6 +12,7 @@ class Parameters {
     float zStep = 0.0;
     std::string zImageListFilename = "";
     std::string zDataDirectory = "";
+    std::string zMaskFilename = "";
     std::string zOutputFilename = "";
     std::string zOutputFormat = "";
   public:
@@ -35,6 +36,7 @@ class Parameters {
     float get_step();
     std::string get_image_list_filename();
     std::string get_data_directory();
+    std::string get_mask_filename();
     std::string get_output_filename();
     std::string get_output_format();
 };

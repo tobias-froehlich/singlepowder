@@ -28,6 +28,7 @@ src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/Geometry.h
 src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/Integrator.cpp
 src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/Integrator.h
 src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/List.h
+src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/Mask.h
 src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/Parameters.h
 src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/const.cpp
 src/CMakeFiles/singlepowder.dir/Integrator.cpp.o: ../src/utils.h
@@ -38,6 +39,10 @@ src/CMakeFiles/singlepowder.dir/List.cpp.o: ../src/List.cpp
 src/CMakeFiles/singlepowder.dir/List.cpp.o: ../src/List.h
 src/CMakeFiles/singlepowder.dir/List.cpp.o: ../src/const.cpp
 src/CMakeFiles/singlepowder.dir/List.cpp.o: ../src/utils.h
+
+src/CMakeFiles/singlepowder.dir/Mask.cpp.o: ../src/Mask.cpp
+src/CMakeFiles/singlepowder.dir/Mask.cpp.o: ../src/Mask.h
+src/CMakeFiles/singlepowder.dir/Mask.cpp.o: ../src/utils.h
 
 src/CMakeFiles/singlepowder.dir/Parameters.cpp.o: ../src/Parameters.cpp
 src/CMakeFiles/singlepowder.dir/Parameters.cpp.o: ../src/Parameters.h
@@ -52,6 +57,7 @@ src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/Diffractogram.h
 src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/Geometry.h
 src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/Integrator.h
 src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/List.h
+src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/Mask.h
 src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/Parameters.h
 src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/const.cpp
 src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o: ../src/singlepowder.cpp

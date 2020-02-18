@@ -8,5 +8,6 @@ add_executable(singlepowder
   DetectorImage.cpp
   Geometry.cpp
   Diffractogram.cpp
+  Mask.cpp
   Integrator.cpp
 )

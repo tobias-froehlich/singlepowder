@@ -115,6 +115,8 @@ Geometry.h
 /home/froehlich/singlepowder/src/Geometry.h
 Diffractogram.h
 /home/froehlich/singlepowder/src/Diffractogram.h
+Mask.h
+/home/froehlich/singlepowder/src/Mask.h
 Integrator.h
 /home/froehlich/singlepowder/src/Integrator.h
 
@@ -143,6 +145,22 @@ utils.h
 /home/froehlich/singlepowder/src/utils.h
 
 /home/froehlich/singlepowder/src/List.h
+
+/home/froehlich/singlepowder/src/Mask.cpp
+iostream
+-
+fstream
+-
+string
+-
+vector
+-
+utils.h
+/home/froehlich/singlepowder/src/utils.h
+Mask.h
+/home/froehlich/singlepowder/src/Mask.h
+
+/home/froehlich/singlepowder/src/Mask.h
 
 /home/froehlich/singlepowder/src/Parameters.cpp
 iostream
@@ -205,6 +223,8 @@ gtest/gtest.h
 /home/froehlich/singlepowder/src/Geometry.h
 ../src/Diffractogram.h
 /home/froehlich/singlepowder/src/Diffractogram.h
+../src/Mask.h
+/home/froehlich/singlepowder/src/Mask.h
 ../src/Integrator.h
 /home/froehlich/singlepowder/src/Integrator.h
 

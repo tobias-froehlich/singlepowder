@@ -104,6 +104,9 @@ void Parameters::read_file(std::string filename) {
       else if (parametername == "data_directory") {
         zDataDirectory = read_str_parameter(line);
       }
+      else if (parametername == "mask_filename") {
+        zMaskFilename = read_str_parameter(line);
+      }
       else if (parametername == "output_filename") {
         zOutputFilename = read_str_parameter(line);
       }
@@ -148,6 +151,10 @@ std::string Parameters::get_image_list_filename() {
 
 std::string Parameters::get_data_directory() {
   return zDataDirectory;
+}
+
+std::string Parameters::get_mask_filename() {
+  return zMaskFilename;
 }
 
 std::string Parameters::get_output_filename() {

@@ -7,6 +7,7 @@ class Integrator {
     List* zList;
     Geometry* zGeometry;
     Diffractogram* zDiffractogram;
+    Mask* zMask;
   public:
     Integrator();
     ~Integrator();

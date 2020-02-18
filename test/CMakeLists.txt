@@ -10,5 +10,6 @@ add_executable( Test
   ../src/Geometry.cpp
   ../src/Diffractogram.cpp
   ../src/Integrator.cpp
+  ../src/Mask.cpp
 )
 target_link_libraries(Test ${GTEST_LIBRARIES} pthread)

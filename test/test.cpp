@@ -8,6 +8,7 @@
 #include "../src/List.h"
 #include "../src/Geometry.h"
 #include "../src/Diffractogram.h"
+#include "../src/Mask.h"
 #include "../src/Integrator.h"
 
 TEST(utils, split) {
@@ -172,6 +173,7 @@ TEST(Parameters, read_file) {
   ASSERT_FLOAT_EQ(parameters->get_step(), 0.1);
   ASSERT_EQ(parameters->get_image_list_filename(), "../../test/testdata/images.txt");
   ASSERT_EQ(parameters->get_data_directory(), "../../test/testdata/");
+  ASSERT_EQ(parameters->get_mask_filename(), "../../test/testdata/mask.txt");
   ASSERT_EQ(parameters->get_output_filename(), "../../test/testdata/output.txt");
   ASSERT_EQ(parameters->get_output_format(), "detailed");
   delete parameters;
@@ -543,6 +545,28 @@ TEST(Integrator, integrate) {
   integrator = new Integrator();
   integrator->integrate("../../test/testdata/parameters.txt");
   delete integrator;
+}
+
+TEST(Mask, create_and_delete) {
+  Mask* mask;
+  mask = new Mask();
+  delete mask;
+}
+
+TEST(Mask, read_file) {
+  Mask* mask;
+  mask = new Mask();
+  ASSERT_THROW(mask->read_file("notexsistingfile.txt"), std::invalid_argument);
+  ASSERT_THROW(mask->read_file("../../test/testdata/wrong_mask.txt"), std::invalid_argument);
+  mask->read_file("../../test/testdata/mask.txt");
+  ASSERT_THROW(mask->get_pixel(-1, 0), std::invalid_argument);
+  ASSERT_THROW(mask->get_pixel(512, 0), std::invalid_argument);
+  ASSERT_THROW(mask->get_pixel(0, -1), std::invalid_argument);
+  ASSERT_THROW(mask->get_pixel(0, 512), std::invalid_argument);
+  ASSERT_FLOAT_EQ(mask->get_pixel(0, 2), 5.0);
+  ASSERT_FLOAT_EQ(mask->get_pixel(3, 0), 4.0);
+  ASSERT_FLOAT_EQ(mask->get_pixel(2, 6), 6.0);
+  delete mask;
 }
 
 int main(int argc, char** argv) {

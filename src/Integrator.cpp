@@ -10,6 +10,7 @@
 #include "List.h"
 #include "Geometry.h"
 #include "Diffractogram.h"
+#include "Mask.h"
 #include "Integrator.h"
 
 Integrator::Integrator() {
@@ -17,6 +18,7 @@ Integrator::Integrator() {
   zList = new List();
   zGeometry = new Geometry();
   zDiffractogram = new Diffractogram();
+  zMask = new Mask();
 }
 
 Integrator::~Integrator() {
@@ -48,6 +50,9 @@ void Integrator::integrate(std::string parameterfilename) {
   zList->read_file(zParameters->get_image_list_filename());
 
   auto timepoint2 = std::chrono::high_resolution_clock::now();
+
+  // Read the mask:
+  zMask->read_file(zParameters->get_mask_filename());
 
   // initialize zDiffractogram:
   zDiffractogram->init(
@@ -84,7 +89,7 @@ void Integrator::integrate(std::string parameterfilename) {
       for (int x=0; x<num_of_cols; x++) {
         counts = detectorimage->get_pixel(x, y);
         angle = zGeometry->calculate_powderangle(x, y);
-        zDiffractogram->add_counts(angle, counts, weight);
+        zDiffractogram->add_counts(angle, counts, weight * zMask->get_pixel(x, y));
       }
     }
   }

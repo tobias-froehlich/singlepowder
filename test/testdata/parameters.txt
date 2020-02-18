@@ -10,5 +10,6 @@ step                  0.1
 
 image_list_filename   ../../test/testdata/images.txt # list of images
 data_directory        ../../test/testdata/
+mask_filename        ../../test/testdata/mask.txt
 output_filename       ../../test/testdata/output.txt
 output_format         detailed
