@@ -4,16 +4,16 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/tobi/singlepowder/src/Action.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/Action.cpp.o"
-  "/home/tobi/singlepowder/src/DetectorImage.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/DetectorImage.cpp.o"
-  "/home/tobi/singlepowder/src/Diffractogram.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/Diffractogram.cpp.o"
-  "/home/tobi/singlepowder/src/Geometry.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/Geometry.cpp.o"
-  "/home/tobi/singlepowder/src/Integrator.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/Integrator.cpp.o"
-  "/home/tobi/singlepowder/src/List.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/List.cpp.o"
-  "/home/tobi/singlepowder/src/Parameters.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/Parameters.cpp.o"
-  "/home/tobi/singlepowder/src/const.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/const.cpp.o"
-  "/home/tobi/singlepowder/src/singlepowder.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o"
-  "/home/tobi/singlepowder/src/utils.cpp" "/home/tobi/singlepowder/build/src/CMakeFiles/singlepowder.dir/utils.cpp.o"
+  "/home/froehlich/singlepowder/src/Action.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/Action.cpp.o"
+  "/home/froehlich/singlepowder/src/DetectorImage.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/DetectorImage.cpp.o"
+  "/home/froehlich/singlepowder/src/Diffractogram.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/Diffractogram.cpp.o"
+  "/home/froehlich/singlepowder/src/Geometry.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/Geometry.cpp.o"
+  "/home/froehlich/singlepowder/src/Integrator.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/Integrator.cpp.o"
+  "/home/froehlich/singlepowder/src/List.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/List.cpp.o"
+  "/home/froehlich/singlepowder/src/Parameters.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/Parameters.cpp.o"
+  "/home/froehlich/singlepowder/src/const.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/const.cpp.o"
+  "/home/froehlich/singlepowder/src/singlepowder.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o"
+  "/home/froehlich/singlepowder/src/utils.cpp" "/home/froehlich/singlepowder/build/src/CMakeFiles/singlepowder.dir/utils.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

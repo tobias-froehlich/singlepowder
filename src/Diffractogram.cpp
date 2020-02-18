@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <cmath>
+#include <iomanip>
 #include "const.cpp"
 #include "utils.h"
 #include "Diffractogram.h"
@@ -119,12 +120,28 @@ void Diffractogram::calculate_intensities_and_errors() {
 
 void Diffractogram::write_file(std::string filename) {
   std::ofstream file(filename.c_str());
+  int columnwidth = 29;
+  int precision = 10;
   if (!(file.is_open())) {
     throw std::invalid_argument("Cannot open file for writing.");
   }
-  file << "#  angle   sum_of_weights    sum_of_weighted_counts     sum_of_squareweighted_counts    intensity    error \n";
+  file << std::fixed;
+  file << "#";
+  file << std::setw(columnwidth-1) << "angle ";
+  file << std::setw(columnwidth) << "sum_of_weights ";
+  file << std::setw(columnwidth) << "sum_of_weighted_counts ";
+  file << std::setw(columnwidth) << "sum_of_squareweighted_counts ";
+  file << std::setw(columnwidth) << "intensity ";
+  file << std::setw(columnwidth) << "error ";
+  file << "\n";
   for(int i = 0; i < zLength; i++) {
-    file << zAngles[i] << " " << zSumOfWeights[i] << " " << zSumOfWeightedCounts[i] << " " << zSumOfSquareweightedCounts[i] << " " << zIntensities[i] << " " << zErrors[i] << '\n';
+    file << std::setw(columnwidth-1) << std::setprecision(precision) << zAngles[i] << " ";
+    file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeights[i] << " ";
+    file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfWeightedCounts[i] << " ";
+    file << std::setw(columnwidth-1) << std::setprecision(precision) << zSumOfSquareweightedCounts[i] << " ";
+    file << std::setw(columnwidth-1) << std::setprecision(precision) << zIntensities[i] << " ";
+    file << std::setw(columnwidth-1) << std::setprecision(precision) << zErrors[i] << " ";
+    file << '\n';
   }
   file.close();
 }

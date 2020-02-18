@@ -1,4 +1,4 @@
-#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
 
@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/tobi/singlepowder/src/Action.cpp
+/home/froehlich/singlepowder/src/Action.cpp
 iostream
 -
 fstream
@@ -18,17 +18,17 @@ string
 vector
 -
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 DetectorImage.h
-/home/tobi/singlepowder/src/DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
 Action.h
-/home/tobi/singlepowder/src/Action.h
+/home/froehlich/singlepowder/src/Action.h
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 
-/home/tobi/singlepowder/src/Action.h
+/home/froehlich/singlepowder/src/Action.h
 
-/home/tobi/singlepowder/src/DetectorImage.cpp
+/home/froehlich/singlepowder/src/DetectorImage.cpp
 iostream
 -
 fstream
@@ -38,13 +38,13 @@ string
 vector
 -
 DetectorImage.h
-/home/tobi/singlepowder/src/DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 
-/home/tobi/singlepowder/src/DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
 
-/home/tobi/singlepowder/src/Diffractogram.cpp
+/home/froehlich/singlepowder/src/Diffractogram.cpp
 iostream
 -
 fstream
@@ -57,16 +57,18 @@ vector
 -
 cmath
 -
+iomanip
+-
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 Diffractogram.h
-/home/tobi/singlepowder/src/Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
 
-/home/tobi/singlepowder/src/Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
 
-/home/tobi/singlepowder/src/Geometry.cpp
+/home/froehlich/singlepowder/src/Geometry.cpp
 iostream
 -
 fstream
@@ -80,15 +82,15 @@ vector
 cmath
 -
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 Geometry.h
-/home/tobi/singlepowder/src/Geometry.h
+/home/froehlich/singlepowder/src/Geometry.h
 
-/home/tobi/singlepowder/src/Geometry.h
+/home/froehlich/singlepowder/src/Geometry.h
 
-/home/tobi/singlepowder/src/Integrator.cpp
+/home/froehlich/singlepowder/src/Integrator.cpp
 iostream
 -
 string
@@ -96,27 +98,27 @@ string
 vector
 -
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 Parameters.h
-/home/tobi/singlepowder/src/Parameters.h
+/home/froehlich/singlepowder/src/Parameters.h
 DetectorImage.h
-/home/tobi/singlepowder/src/DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
 Action.h
-/home/tobi/singlepowder/src/Action.h
+/home/froehlich/singlepowder/src/Action.h
 List.h
-/home/tobi/singlepowder/src/List.h
+/home/froehlich/singlepowder/src/List.h
 Geometry.h
-/home/tobi/singlepowder/src/Geometry.h
+/home/froehlich/singlepowder/src/Geometry.h
 Diffractogram.h
-/home/tobi/singlepowder/src/Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
 Integrator.h
-/home/tobi/singlepowder/src/Integrator.h
+/home/froehlich/singlepowder/src/Integrator.h
 
-/home/tobi/singlepowder/src/Integrator.h
+/home/froehlich/singlepowder/src/Integrator.h
 
-/home/tobi/singlepowder/src/List.cpp
+/home/froehlich/singlepowder/src/List.cpp
 iostream
 -
 fstream
@@ -128,19 +130,19 @@ string
 vector
 -
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 DetectorImage.h
-/home/tobi/singlepowder/src/DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
 Action.h
-/home/tobi/singlepowder/src/Action.h
+/home/froehlich/singlepowder/src/Action.h
 List.h
-/home/tobi/singlepowder/src/List.h
+/home/froehlich/singlepowder/src/List.h
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 
-/home/tobi/singlepowder/src/List.h
+/home/froehlich/singlepowder/src/List.h
 
-/home/tobi/singlepowder/src/Parameters.cpp
+/home/froehlich/singlepowder/src/Parameters.cpp
 iostream
 -
 fstream
@@ -152,17 +154,17 @@ string
 vector
 -
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 Parameters.h
-/home/tobi/singlepowder/src/Parameters.h
+/home/froehlich/singlepowder/src/Parameters.h
 
-/home/tobi/singlepowder/src/Parameters.h
+/home/froehlich/singlepowder/src/Parameters.h
 
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 
-/home/tobi/singlepowder/src/singlepowder.cpp
+/home/froehlich/singlepowder/src/singlepowder.cpp
 iostream
 -
 vector
@@ -170,27 +172,27 @@ vector
 string
 -
 singlepowderConfig.h
-/home/tobi/singlepowder/src/singlepowderConfig.h
+/home/froehlich/singlepowder/src/singlepowderConfig.h
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 DetectorImage.h
-/home/tobi/singlepowder/src/DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
 Parameters.h
-/home/tobi/singlepowder/src/Parameters.h
+/home/froehlich/singlepowder/src/Parameters.h
 Action.h
-/home/tobi/singlepowder/src/Action.h
+/home/froehlich/singlepowder/src/Action.h
 List.h
-/home/tobi/singlepowder/src/List.h
+/home/froehlich/singlepowder/src/List.h
 Geometry.h
-/home/tobi/singlepowder/src/Geometry.h
+/home/froehlich/singlepowder/src/Geometry.h
 Diffractogram.h
-/home/tobi/singlepowder/src/Diffractogram.h
+/home/froehlich/singlepowder/src/Diffractogram.h
 Integrator.h
-/home/tobi/singlepowder/src/Integrator.h
+/home/froehlich/singlepowder/src/Integrator.h
 
-/home/tobi/singlepowder/src/utils.cpp
+/home/froehlich/singlepowder/src/utils.cpp
 iostream
 -
 string
@@ -200,11 +202,11 @@ vector
 cmath
 -
 const.cpp
-/home/tobi/singlepowder/src/const.cpp
+/home/froehlich/singlepowder/src/const.cpp
 utils.h
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 
-/home/tobi/singlepowder/src/utils.h
+/home/froehlich/singlepowder/src/utils.h
 
 singlepowderConfig.h
 
