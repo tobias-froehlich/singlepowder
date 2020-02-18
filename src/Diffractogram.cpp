@@ -137,7 +137,7 @@ void Diffractogram::write_file(std::string filename) {
     precision = 10;
     file << std::fixed;
     file << "#";
-    file << std::setw(columnwidth-1) << "angle ";
+    file << std::setw(columnwidth-1) << "powder_angle ";
     file << std::setw(columnwidth) << "sum_of_weights ";
     file << std::setw(columnwidth) << "sum_of_weighted_counts ";
     file << std::setw(columnwidth) << "sum_of_squareweighted_counts ";
@@ -155,11 +155,11 @@ void Diffractogram::write_file(std::string filename) {
     }
   }
   else if (zOutputFormat == "standard") {
-    columnwidth = 12;
+    columnwidth = 14;
     precision = 3;
     file << std::fixed;
     file << "#";
-    file << std::setw(columnwidth-1) << "angle ";
+    file << std::setw(columnwidth-1) << "powder_angle ";
     file << std::setw(columnwidth) << "intensity ";
     file << "\n";
     for(int i = 0; i < zLength; i++) {

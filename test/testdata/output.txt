@@ -1,4 +1,4 @@
-#                      angle               sum_of_weights       sum_of_weighted_counts sum_of_squareweighted_counts                    intensity                        error 
+#               powder_angle               sum_of_weights       sum_of_weighted_counts sum_of_squareweighted_counts                    intensity                        error 
                 5.0000000000               841.5561523438             40125.4023437500             39825.3242187500                47.6800041199                 0.2371354997 
                 5.0999999046               881.2521972656             42156.0156250000             41836.8242187500                47.8364944458                 0.2321021408 
                 5.1999998093               873.3129882812             41726.7226562500             41412.1914062500                47.7798042297                 0.2330205441 

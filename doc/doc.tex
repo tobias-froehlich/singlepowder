@@ -5,14 +5,108 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{graphicx}
+\usepackage{multirow}
 \setlength{\parindent}{0pt} % No indent at begin of paragraph
 \setcounter{secnumdepth}{0} % 0 = No numeration of sections etc.
 
+\subject{Manual}
 \title{singlepowder}
+\subtitle{Integrating single-crystal area-detector\\data as powder diffractogram}
+\author{Tobias Fr\"{o}hlich}
+\date{}
 \begin{document}
 \maketitle
 
+\section{Installation (Linux)}
+
+
+\subsection{Requirements}
+
+\begin{itemize}
+	\item C++11
+	\item std library
+	\item cmake
+	\item Google-Test
+\end{itemize}
+
+Google-Test is installed as follows:
+
+\begin{verbatim}
+sudo aptitude install libgtest-dev
+cd /usr/src/googletest/
+sudo cmake . \\
+sudo cmake --build . --target install
+\end{verbatim}
+
+\subsection{Build}
+In the directory \verb|singlepowder/build/|:\\
+\begin{verbatim}
+cmake ..
+make
+\end{verbatim}
+
+\subsection{Testing}
+In the directory \verb|singlepowder/build/test/|:\\
+\begin{verbatim}
+./Test
+\end{verbatim}
+
+\subsection{Installation}
+In the directory \verb|singlepowder/build/src/|:\\
+\begin{verbatim}
+sudo cp singlepowder /usr/bin/
+\end{verbatim}
+
+\section{Running}
+
+singlepowder is run with one parameter, that is the name of the parameter file, i.e. parameters.txt:\\
+\begin{verbatim}
+singlepowder parameters.txt
+\end{verbatim}
+
+\section{Input files}
+
+Figure \ref{fig:files} shows an example for input files. The directory \\
+\verb|~/singlepowder_test/TD015S001apex004/|\\
+contains the data files \verb|TD015S001apex004_01_0001.out|, \verb|TD015S001apex004_02_0001.out|, etc.
+
+These files are listed in \verb|~/singlepowder_test/list.txt|. This list file contains one line per image file. So far, only the columns filename, detectordistance and weight are used.
+
+The program only needs the name of the parameter file \verb|parameters.txt| and gets all further information from this.
+
+The output is written to the file given in the line \verb|output_filename| of the parameter file. In the example, the output file is named \verb|output.txt|.
+
+Everything behind the character \verb|#| in the parameter file or the list file is a comment and ignored by the program. Empty lines or lines consisting of only a comment are allowed. The order of the parameters in the parameter file does not matter. Appart from comments, every line in the parameter file must consist of exactly two words. Thus, spaces in file names are not allowed.
+
+The parameters in the parameter file are the following (all parameters must be given, there are no default values):\\
+~\\
+\begin{tabular}{r | l}
+	\verb|pixel_width| & Width of one pixel in mm \\
+	\verb|pixel_height| & Height of one pixel in mm \\
+	\\
+	\verb|centre_pixel_x| & \multirow{2}{*}{$ \begin{matrix} x \\ y \end{matrix} \begin{cases} \text{index of the pixel hit by the direct} \\ \text{beam at $ 2\theta = 0 $ (non-integer index possible)} \end{cases}$} \\
+    \verb|centre_pixel_y| & \\
+    \\
+    \verb|angle_min| & \multirow{3}{*}{$ \begin{cases} \text{The output powder diffractogram} \\ \text{covers $ 2\theta $ from \texttt{angle\_min} to \texttt{angle\_max}} \\ \text {with stepsize \texttt{step}.} \end{cases}$} \\
+    \verb|angle_max| & \\
+    \verb|step| & \\
+    \\
+    \verb|image_list_filename| & path and name of the list file\\
+    \verb|data_directory| & path for the data files\\
+    \verb|output_filename| & path and name of the output file\\
+    \\
+    \verb|output_format| & format of the output file (standard or detailed)\\
+\end{tabular}
+~\\
+
+\begin{figure}
+\includegraphics[width=15cm]{figs/files.pdf}
+\caption{\label{fig:files}Example for input files. In the directory \texttt{\~{}/singlepowder\_test/}, the command \texttt{singlepowder parameters.txt} runs the program.}
+\end{figure}
+
 \section{Geometry of the diffractometer}
+
+All lengths are in $ \mathrm{mm} $ and all angles in $ \mathrm{deg} $.
 
 Figure \ref{fig:goniometer} shows a four circle diffractometer. The angles are shown with the directions used in the program (only $ 2\theta $ is actually used so far). In order to avoid confusion, $ 2\theta $ names the position of the detector while "powder angle" $ \varepsilon $ is used for the angle between the diffracted beam and the direct beam for a certain pixel. The pixel indices $ x $ and $ y $ and the pixel width $ w $ and height $ h $ are shown with the direction used by the classes Geometry and DetectorImage.
 
@@ -34,7 +128,7 @@ The variables in the figure and the following calculation refer to the following
 
 \begin{figure}
 \includegraphics{figs/goniometer.pdf}
-\caption{\label{fig:goniometer}Direction of the angles $ 2\theta $, $ \omega $, $ \chi $, $ \varphi $, the pixel indices $ x $, $ y $ and the axes $ e_1, e_2, e_3 $.}
+\caption{\label{fig:goniometer}Direction of the angles $ 2\theta $, $ \omega $, $ \chi $, $ \varphi $, the pixel indices $ x $, $ y $ and the Cartesian basis vectors $ e_1, e_2, e_3 $.}
 \end{figure}
 
 $ x_c $ and $ y_c $ are the indices of the pixel that is hit by the direct beam when all angles are set to zero. The deviation (in mm) from this pixel is for the pixel with indices $ (x, y) $:
@@ -93,5 +187,55 @@ From this, we can calculate the powder\_angle $ \varepsilon $ :
 	&= \arccos \frac{d ( d\cos(2\theta) + \Delta x \sin(2\theta))}{\sqrt{(d\cos(2\theta) + \Delta x \sin(2\theta))^2 + (d\sin(2\theta) - \Delta x \cos(2\theta))^2}~d} \\
 	&= \arccos \frac{d\cos(2\theta) + \Delta x \sin(2\theta)}{\sqrt{(d\cos(2\theta) + \Delta x \sin(2\theta))^2 + (d\sin(2\theta) - \Delta x \cos(2\theta))^2}}
 \end{align*}
+
+This is the formula in Geometry::calculate\_powderangle().
+
+\section{Integration and error propagation}
+
+The algorithm loops over all pixels of all detector images. For each detector image, the detector distance and $ 2\theta $ are given in the list file. From the geometric parameters, the powder\_angle is calculated. The counts of this pixel are summed in the diffractogram at the according powder\_angle. The bin of the histogram is used, where the angle deviates maximally \verb|step|/2. If the powder\_angle of the pixel lies outside the interval $ [\texttt{angle\_min} - \texttt{step}/2, \texttt{angle\_max} + \texttt{step}/2] $, the counts are discarded. The counts are weighted by the weight given in the list file.
+
+Let $ i, j $ run over all pixels of all detector images for a fixed powder\_angle. The counts are $ c_i $ and the weights $ w_i $. The intensity at this angle is:
+
+\begin{align*}
+	I &= \frac{\sum\limits_{i = 1}^{n} w_i c_i}{\sum\limits_{j=1}^{n} w_j}
+\end{align*}
+
+The error on the counts are $ \sigma_{c_i} = \sqrt{c_i} $, so the error on the intensity can be computed in the following way:
+
+\begin{align*}
+	\sigma_I &= \sqrt{\sum\limits_{i=1}^{n} \left(\frac{\partial I}{\partial c_i}\right)^2 \sigma_{c_i}^2} \\
+	&= \sqrt{\sum\limits_{i=1}^{n} \left(w_i \middle/ \sum\limits_{j=1}^{n} w_j\right)^2 c_i} \\
+	&= \frac{1}{\sum\limits_{j=1}^{n} w_j}~ \sqrt{\sum\limits_{i=1}^{n} w_i^2 c_i}
+\end{align*}
+
+During the integration, the following sums are collected for each powder\_angle:
+
+\begin{align*}
+	\texttt{sum\_of\_weights} &= \sum\limits_{i=1}^{n} w_i \\
+	\texttt{sum\_of\_weighted\_counts} &= \sum\limits_{i=1}^{n} w_i c_i \\
+	\texttt{sum\_of\_squareweighted\_counts} &= \sum\limits_{i=1}^{n} w_i^2 c_i
+\end{align*}
+
+These values are written to the output file when the parameter \texttt{output\_format} in the parameter file is set to detailed.
+
+The sums are calculated in Diffractogram::add\_counts().
+
+The intensity and its error is then calculated as follows:
+
+\begin{align*}
+	\texttt{intensity} &=& I &=& \texttt{sum\_of\_weighted\_counts}\big/\texttt{sum\_of\_weights} \\
+	\texttt{error} &=& \sigma_I &=& \sqrt{\texttt{sum\_of\_squareweighted\_counts}}\big/\texttt{sum\_of\_weights}
+\end{align*}
+
+This is the formula in Diffractogram::calculate\_intensities\_and\_errors().
+
+\section{Structure of the program}
+
+The structure of the program is shown in Figure \ref{fig:class_diagram}.
+
+\begin{figure}
+	\includegraphics[width=15cm]{figs/class_diagram.pdf}
+	\caption{\label{fig:class_diagram}Diagram showing the hierarchy of the classes and the files they read and write.}
+\end{figure}
 
 \end{document}
