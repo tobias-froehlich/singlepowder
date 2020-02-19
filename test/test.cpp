@@ -569,6 +569,40 @@ TEST(Mask, read_file) {
   delete mask;
 }
 
+TEST (Mask, write_file) {
+  Mask* mask;
+  mask = new Mask();
+  mask->read_file("../../test/testdata/mask.txt");
+  ASSERT_THROW(mask->write_file("../../test/nonexisting_directory/file.txt"), std::invalid_argument);
+  mask->write_file("../../test/testdata/outputmask.txt");
+  delete mask;
+}
+
+TEST(Mask, init) {
+  Mask* mask;
+  mask = new Mask();
+  mask->init(10, 20);
+  ASSERT_THROW(mask->get_pixel(-1, 0), std::invalid_argument);
+  ASSERT_THROW(mask->get_pixel(0, -1), std::invalid_argument);
+  ASSERT_THROW(mask->get_pixel(10, 0), std::invalid_argument);
+  ASSERT_THROW(mask->get_pixel(0, 20), std::invalid_argument);
+  mask->get_pixel(0,0);
+  mask->get_pixel(9, 19);
+  delete mask;
+}
+
+TEST(Mask, set_pixel) {
+  Mask* mask;
+  mask = new Mask();
+  mask->init(10, 20);
+  ASSERT_THROW(mask->set_pixel(-1, 0, 0.0), std::invalid_argument);
+  ASSERT_THROW(mask->set_pixel(0, -1, 0.0), std::invalid_argument);
+  ASSERT_THROW(mask->set_pixel(10, 0, 0.0), std::invalid_argument);
+  ASSERT_THROW(mask->set_pixel(0, 20, 0.0), std::invalid_argument);
+  mask->set_pixel(5, 6, 1.23);
+  ASSERT_FLOAT_EQ(mask->get_pixel(5, 6), 1.23);
+  delete mask;
+}
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

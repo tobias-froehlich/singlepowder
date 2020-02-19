@@ -9,8 +9,11 @@ class Mask {
   public:
     Mask();
     ~Mask();
+    void init(int num_of_cols, int num_of_rows);
     void read_file(std::string filename);
     float get_pixel(int pixel_x, int pixel_y);
+    void set_pixel(int pixel_x, int pixel_y, float value);
+    void write_file(std::string filename);
 };
 
 #endif
