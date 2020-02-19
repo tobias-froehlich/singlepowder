@@ -70,6 +70,7 @@ void Integrator::integrate(std::string parameterfilename) {
   int counts;
   float angle;
   float weight;
+  float this_weight;
 
   auto timepoint3 = std::chrono::high_resolution_clock::now();
 
@@ -89,7 +90,13 @@ void Integrator::integrate(std::string parameterfilename) {
       for (int x=0; x<num_of_cols; x++) {
         counts = detectorimage->get_pixel(x, y);
         angle = zGeometry->calculate_powderangle(x, y);
-        zDiffractogram->add_counts(angle, counts, weight * zMask->get_pixel(x, y));
+        if (utils::float_equal(zMask->get_pixel(x, y), 0.0)) {
+          this_weight = 0.0;
+        }
+        else {
+          this_weight = weight;
+        }
+        zDiffractogram->add_counts(angle, ((float)counts)*zMask->get_pixel(x, y), this_weight);
       }
     }
   }

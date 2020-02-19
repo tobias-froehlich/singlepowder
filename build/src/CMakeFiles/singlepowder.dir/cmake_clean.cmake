@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/singlepowder.dir/Diffractogram.cpp.o"
   "CMakeFiles/singlepowder.dir/Mask.cpp.o"
   "CMakeFiles/singlepowder.dir/Integrator.cpp.o"
+  "CMakeFiles/singlepowder.dir/MaskMaker.cpp.o"
   "singlepowder.pdb"
   "singlepowder"
 )

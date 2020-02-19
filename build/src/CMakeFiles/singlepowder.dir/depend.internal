@@ -44,6 +44,14 @@ src/CMakeFiles/singlepowder.dir/Mask.cpp.o
  /home/froehlich/singlepowder/src/Mask.cpp
  /home/froehlich/singlepowder/src/Mask.h
  /home/froehlich/singlepowder/src/utils.h
+src/CMakeFiles/singlepowder.dir/MaskMaker.cpp.o
+ /home/froehlich/singlepowder/src/Action.h
+ /home/froehlich/singlepowder/src/DetectorImage.h
+ /home/froehlich/singlepowder/src/List.h
+ /home/froehlich/singlepowder/src/Mask.h
+ /home/froehlich/singlepowder/src/MaskMaker.cpp
+ /home/froehlich/singlepowder/src/MaskMaker.h
+ /home/froehlich/singlepowder/src/utils.h
 src/CMakeFiles/singlepowder.dir/Parameters.cpp.o
  /home/froehlich/singlepowder/src/Parameters.cpp
  /home/froehlich/singlepowder/src/Parameters.h
@@ -59,6 +67,7 @@ src/CMakeFiles/singlepowder.dir/singlepowder.cpp.o
  /home/froehlich/singlepowder/src/Integrator.h
  /home/froehlich/singlepowder/src/List.h
  /home/froehlich/singlepowder/src/Mask.h
+ /home/froehlich/singlepowder/src/MaskMaker.h
  /home/froehlich/singlepowder/src/Parameters.h
  /home/froehlich/singlepowder/src/const.cpp
  /home/froehlich/singlepowder/src/singlepowder.cpp

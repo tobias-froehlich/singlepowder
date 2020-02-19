@@ -44,6 +44,14 @@ test/CMakeFiles/Test.dir/__/src/Mask.cpp.o: ../src/Mask.cpp
 test/CMakeFiles/Test.dir/__/src/Mask.cpp.o: ../src/Mask.h
 test/CMakeFiles/Test.dir/__/src/Mask.cpp.o: ../src/utils.h
 
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/Action.h
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/DetectorImage.h
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/List.h
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/Mask.h
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/MaskMaker.cpp
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/MaskMaker.h
+test/CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o: ../src/utils.h
+
 test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/Parameters.cpp
 test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/Parameters.h
 test/CMakeFiles/Test.dir/__/src/Parameters.cpp.o: ../src/const.cpp
@@ -60,6 +68,7 @@ test/CMakeFiles/Test.dir/test.cpp.o: ../src/Geometry.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Integrator.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/List.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Mask.h
+test/CMakeFiles/Test.dir/test.cpp.o: ../src/MaskMaker.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/Parameters.h
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/const.cpp
 test/CMakeFiles/Test.dir/test.cpp.o: ../src/utils.h

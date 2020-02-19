@@ -314,6 +314,33 @@ Mask.cpp.s:
 	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/Mask.cpp.s
 .PHONY : Mask.cpp.s
 
+MaskMaker.o: MaskMaker.cpp.o
+
+.PHONY : MaskMaker.o
+
+# target to build an object file
+MaskMaker.cpp.o:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/MaskMaker.cpp.o
+.PHONY : MaskMaker.cpp.o
+
+MaskMaker.i: MaskMaker.cpp.i
+
+.PHONY : MaskMaker.i
+
+# target to preprocess a source file
+MaskMaker.cpp.i:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/MaskMaker.cpp.i
+.PHONY : MaskMaker.cpp.i
+
+MaskMaker.s: MaskMaker.cpp.s
+
+.PHONY : MaskMaker.s
+
+# target to generate assembly for a file
+MaskMaker.cpp.s:
+	cd /home/froehlich/singlepowder/build && $(MAKE) -f src/CMakeFiles/singlepowder.dir/build.make src/CMakeFiles/singlepowder.dir/MaskMaker.cpp.s
+.PHONY : MaskMaker.cpp.s
+
 Parameters.o: Parameters.cpp.o
 
 .PHONY : Parameters.o
@@ -452,6 +479,9 @@ help:
 	@echo "... Mask.o"
 	@echo "... Mask.i"
 	@echo "... Mask.s"
+	@echo "... MaskMaker.o"
+	@echo "... MaskMaker.i"
+	@echo "... MaskMaker.s"
 	@echo "... Parameters.o"
 	@echo "... Parameters.i"
 	@echo "... Parameters.s"

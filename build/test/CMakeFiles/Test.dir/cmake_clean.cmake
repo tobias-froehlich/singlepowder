@@ -9,6 +9,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Test.dir/__/src/Diffractogram.cpp.o"
   "CMakeFiles/Test.dir/__/src/Integrator.cpp.o"
   "CMakeFiles/Test.dir/__/src/Mask.cpp.o"
+  "CMakeFiles/Test.dir/__/src/MaskMaker.cpp.o"
   "Test.pdb"
   "Test"
 )

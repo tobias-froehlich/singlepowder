@@ -10,4 +10,5 @@ add_executable(singlepowder
   Diffractogram.cpp
   Mask.cpp
   Integrator.cpp
+  MaskMaker.cpp
 )

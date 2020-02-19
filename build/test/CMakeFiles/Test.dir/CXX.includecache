@@ -164,6 +164,28 @@ Mask.h
 
 /home/froehlich/singlepowder/src/Mask.h
 
+/home/froehlich/singlepowder/src/MaskMaker.cpp
+iostream
+-
+string
+-
+vector
+-
+utils.h
+/home/froehlich/singlepowder/src/utils.h
+DetectorImage.h
+/home/froehlich/singlepowder/src/DetectorImage.h
+Action.h
+/home/froehlich/singlepowder/src/Action.h
+List.h
+/home/froehlich/singlepowder/src/List.h
+Mask.h
+/home/froehlich/singlepowder/src/Mask.h
+MaskMaker.h
+/home/froehlich/singlepowder/src/MaskMaker.h
+
+/home/froehlich/singlepowder/src/MaskMaker.h
+
 /home/froehlich/singlepowder/src/Parameters.cpp
 iostream
 -
@@ -229,4 +251,6 @@ gtest/gtest.h
 /home/froehlich/singlepowder/src/Mask.h
 ../src/Integrator.h
 /home/froehlich/singlepowder/src/Integrator.h
+../src/MaskMaker.h
+/home/froehlich/singlepowder/src/MaskMaker.h
 

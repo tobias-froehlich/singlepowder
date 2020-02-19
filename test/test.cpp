@@ -10,6 +10,7 @@
 #include "../src/Diffractogram.h"
 #include "../src/Mask.h"
 #include "../src/Integrator.h"
+#include "../src/MaskMaker.h"
 
 TEST(utils, split) {
   std::string str;
@@ -603,6 +604,20 @@ TEST(Mask, set_pixel) {
   ASSERT_FLOAT_EQ(mask->get_pixel(5, 6), 1.23);
   delete mask;
 }
+
+TEST(MaskMaker, create_and_delete) {
+  MaskMaker* maskmaker;
+  maskmaker = new MaskMaker();
+  delete maskmaker;
+}
+
+TEST(MaskMaker, make_mask) {
+  MaskMaker* maskmaker;
+  maskmaker = new MaskMaker();
+  maskmaker->make_mask("../../test/testdata/", "../../test/testdata/images.txt", "../../test/testdata/made_mask.txt");
+  delete maskmaker;
+}
+
 int main(int argc, char** argv) {
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
