@@ -564,9 +564,9 @@ TEST(Mask, read_file) {
   ASSERT_THROW(mask->get_pixel(512, 0), std::invalid_argument);
   ASSERT_THROW(mask->get_pixel(0, -1), std::invalid_argument);
   ASSERT_THROW(mask->get_pixel(0, 512), std::invalid_argument);
-  ASSERT_FLOAT_EQ(mask->get_pixel(0, 2), 5.0);
-  ASSERT_FLOAT_EQ(mask->get_pixel(3, 0), 4.0);
-  ASSERT_FLOAT_EQ(mask->get_pixel(2, 6), 6.0);
+  ASSERT_FLOAT_EQ(mask->get_pixel(0, 2), 5.5);
+  ASSERT_FLOAT_EQ(mask->get_pixel(3, 0), 4.5);
+  ASSERT_FLOAT_EQ(mask->get_pixel(2, 6), 6.5);
   delete mask;
 }
 

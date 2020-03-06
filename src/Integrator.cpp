@@ -91,12 +91,17 @@ void Integrator::integrate(std::string parameterfilename) {
         counts = detectorimage->get_pixel(x, y);
         angle = zGeometry->calculate_powderangle(x, y);
         if (utils::float_equal(zMask->get_pixel(x, y), 0.0)) {
-          this_weight = 0.0;
+//          this_weight = 0.0;
         }
         else {
-          this_weight = weight;
+//          this_weight = weight;
+//        }
+//        if ((x == 5) && (y == 6)) {
+//          std::cout << "Mask pixel: " << zMask->get_pixel(x, y) << '\n';
+//          std::cout << "Detector pixel: " << detectorimage->get_pixel(x, y) << '\n';
+//        }
+        zDiffractogram->add_counts(angle, ((float)counts)*zMask->get_pixel(x, y), weight);
         }
-        zDiffractogram->add_counts(angle, ((float)counts)*zMask->get_pixel(x, y), this_weight);
       }
     }
   }

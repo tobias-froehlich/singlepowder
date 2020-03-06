@@ -44,7 +44,7 @@ void Mask::read_file(std::string filename) {
     if (words.size() > 0) {
       pixelrow.clear();
       for (std::string word : words) {
-        pixelrow.push_back(std::stoi(word));
+        pixelrow.push_back(std::stof(word));
       }
       zPixels.push_back(pixelrow);
     }

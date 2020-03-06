@@ -7,14 +7,15 @@ sudo cmake --build . --target install
 
 Building singlepowder:
 
-in singlepowder/build/
+Create directory singlepowder/build (if not exists).
+In singlepowder/build/
 rm -r *
 cmake ..
 make
 
 Testing:
 
-in singlepowder/build/test
+in singlepowder/bin/
 ./Test
 
 
