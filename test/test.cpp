@@ -101,8 +101,8 @@ TEST(DetectorImage, read_file_file_missing) {
 TEST(DetectorImage, read_file) {
   DetectorImage* detector_image;
   detector_image = new DetectorImage();
-  detector_image->read_file("../../test/testdata/AR506a_apex001_01_0001.out");
-  detector_image->read_file("../../test/testdata/TD015S001apex004_01_0001.out");
+  detector_image->read_file("../test/testdata/AR506a_apex001_01_0001.out");
+  detector_image->read_file("../test/testdata/TD015S001apex004_01_0001.out");
   ASSERT_EQ(detector_image->get_num_of_rows(), 512);
   ASSERT_EQ(detector_image->get_num_of_cols(), 512);
   delete detector_image;
@@ -111,7 +111,7 @@ TEST(DetectorImage, read_file) {
 TEST(DetectorImage, get_pixel) {
   DetectorImage* detector_image;
   detector_image = new DetectorImage();
-  detector_image->read_file("../../test/testdata/AR506a_apex001_01_0001.out");
+  detector_image->read_file("../test/testdata/AR506a_apex001_01_0001.out");
   ASSERT_EQ(detector_image->get_pixel(0, 511), 44);
   ASSERT_EQ(detector_image->get_pixel(1, 511), 31);
   ASSERT_EQ(detector_image->get_pixel(511, 511), 79);
@@ -164,7 +164,7 @@ TEST(Parameters, read_file) {
   Parameters* parameters;
   parameters = new Parameters();
   ASSERT_THROW(parameters->read_file("not_existing_file.txt"), std::invalid_argument);
-  parameters->read_file("../../test/testdata/parameters.txt");
+  parameters->read_file("../test/testdata/parameters.txt");
   ASSERT_FLOAT_EQ(parameters->get_pixel_width(), 0.12);
   ASSERT_FLOAT_EQ(parameters->get_pixel_height(), 0.12);
   ASSERT_FLOAT_EQ(parameters->get_centre_pixel_x(), 258.0);
@@ -172,10 +172,10 @@ TEST(Parameters, read_file) {
   ASSERT_FLOAT_EQ(parameters->get_angle_min(), 5.0);
   ASSERT_FLOAT_EQ(parameters->get_angle_max(), 10.0);
   ASSERT_FLOAT_EQ(parameters->get_step(), 0.1);
-  ASSERT_EQ(parameters->get_image_list_filename(), "../../test/testdata/images.txt");
-  ASSERT_EQ(parameters->get_data_directory(), "../../test/testdata/");
-  ASSERT_EQ(parameters->get_mask_filename(), "../../test/testdata/mask.txt");
-  ASSERT_EQ(parameters->get_output_filename(), "../../test/testdata/output.txt");
+  ASSERT_EQ(parameters->get_image_list_filename(), "../test/testdata/images.txt");
+  ASSERT_EQ(parameters->get_data_directory(), "../test/testdata/");
+  ASSERT_EQ(parameters->get_mask_filename(), "../test/testdata/mask.txt");
+  ASSERT_EQ(parameters->get_output_filename(), "../test/testdata/output.txt");
   ASSERT_EQ(parameters->get_output_format(), "detailed");
   delete parameters;
 }
@@ -229,7 +229,7 @@ TEST(Action, read_detectorimage) {
   Action* action;
   action = new Action();
   action->read_line("TD015S001apex004_01_0001.out    0.000000    0.000000    0.000000    80.000000    60.000000  1.0000");
-  action->set_datadirectory("../../test/testdata/");
+  action->set_datadirectory("../test/testdata/");
   action->read_detectorimage();
   ASSERT_EQ(action->get_detectorimage()->get_pixel(385, 371), 406);
   delete action;
@@ -253,8 +253,8 @@ TEST(List, read_file) {
   List* list;
   list = new List();
   ASSERT_THROW(list->read_file("does_no_exist.txt"), std::invalid_argument);
-  list->set_datadirectory("../../test/testdata/");
-  list->read_file("../../test/testdata/images.txt");
+  list->set_datadirectory("../test/testdata/");
+  list->read_file("../test/testdata/images.txt");
   ASSERT_FLOAT_EQ(list->get_actions()[0]->get_twotheta(), 0.0);
   ASSERT_FLOAT_EQ(list->get_actions()[0]->get_theta(), 0.0);
   ASSERT_FLOAT_EQ(list->get_actions()[0]->get_chi(), 0.0);
@@ -531,7 +531,7 @@ TEST(Diffractogram, write_file) {
   ASSERT_THROW(diffractogram->write_file("notexisting_path/output.txt"), std::invalid_argument);
   diffractogram->add_counts(7.0, 5, 0.5);
   diffractogram->add_counts(7.0, 3, 0.3);
-  diffractogram->write_file("../../test/testdata/output.txt");
+  diffractogram->write_file("../test/testdata/output.txt");
   delete diffractogram;
 }
 
@@ -544,7 +544,7 @@ TEST(Integrator, create_and_delete) {
 TEST(Integrator, integrate) {
   Integrator* integrator;
   integrator = new Integrator();
-  integrator->integrate("../../test/testdata/parameters.txt");
+  integrator->integrate("../test/testdata/parameters.txt");
   delete integrator;
 }
 
@@ -558,8 +558,8 @@ TEST(Mask, read_file) {
   Mask* mask;
   mask = new Mask();
   ASSERT_THROW(mask->read_file("notexsistingfile.txt"), std::invalid_argument);
-  ASSERT_THROW(mask->read_file("../../test/testdata/wrong_mask.txt"), std::invalid_argument);
-  mask->read_file("../../test/testdata/mask.txt");
+  ASSERT_THROW(mask->read_file("../test/testdata/wrong_mask.txt"), std::invalid_argument);
+  mask->read_file("../test/testdata/mask.txt");
   ASSERT_THROW(mask->get_pixel(-1, 0), std::invalid_argument);
   ASSERT_THROW(mask->get_pixel(512, 0), std::invalid_argument);
   ASSERT_THROW(mask->get_pixel(0, -1), std::invalid_argument);
@@ -573,9 +573,9 @@ TEST(Mask, read_file) {
 TEST (Mask, write_file) {
   Mask* mask;
   mask = new Mask();
-  mask->read_file("../../test/testdata/mask.txt");
-  ASSERT_THROW(mask->write_file("../../test/nonexisting_directory/file.txt"), std::invalid_argument);
-  mask->write_file("../../test/testdata/outputmask.txt");
+  mask->read_file("../test/testdata/mask.txt");
+  ASSERT_THROW(mask->write_file("../test/nonexisting_directory/file.txt"), std::invalid_argument);
+  mask->write_file("../test/testdata/outputmask.txt");
   delete mask;
 }
 
@@ -614,7 +614,7 @@ TEST(MaskMaker, create_and_delete) {
 TEST(MaskMaker, make_mask) {
   MaskMaker* maskmaker;
   maskmaker = new MaskMaker();
-  maskmaker->make_mask("../../test/testdata/", "../../test/testdata/images.txt", "../../test/testdata/made_mask.txt");
+  maskmaker->make_mask("../test/testdata/", "../test/testdata/images.txt", "../test/testdata/made_mask.txt");
   delete maskmaker;
 }
 

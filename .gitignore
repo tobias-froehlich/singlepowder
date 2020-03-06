@@ -1,6 +1,7 @@
 # do not commit build directory
 
 build/*
+bin/*
 
 # Prerequisites
 *.d
