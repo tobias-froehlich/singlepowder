@@ -58,6 +58,14 @@ void Mask::read_file(std::string filename) {
   }
 }
 
+int Mask::get_num_of_cols() {
+  return zNCols;
+}
+
+int Mask::get_num_of_rows() {
+  return zNRows;
+}
+
 float Mask::get_pixel(int pixel_x, int pixel_y) {
   if ( (pixel_x < 0) || (pixel_x >= zNCols) 
     || (pixel_y < 0) || (pixel_y >= zNRows) ) {

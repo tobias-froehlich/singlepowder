@@ -560,6 +560,8 @@ TEST(Mask, read_file) {
   ASSERT_THROW(mask->read_file("notexsistingfile.txt"), std::invalid_argument);
   ASSERT_THROW(mask->read_file("../test/testdata/wrong_mask.txt"), std::invalid_argument);
   mask->read_file("../test/testdata/mask.txt");
+  ASSERT_EQ(mask->get_num_of_cols(), 512);
+  ASSERT_EQ(mask->get_num_of_rows(), 512);
   ASSERT_THROW(mask->get_pixel(-1, 0), std::invalid_argument);
   ASSERT_THROW(mask->get_pixel(512, 0), std::invalid_argument);
   ASSERT_THROW(mask->get_pixel(0, -1), std::invalid_argument);
@@ -615,6 +617,34 @@ TEST(MaskMaker, make_mask) {
   MaskMaker* maskmaker;
   maskmaker = new MaskMaker();
   maskmaker->make_mask("../test/testdata/", "../test/testdata/images.txt", "../test/testdata/made_mask.txt");
+  delete maskmaker;
+}
+
+TEST(MaskMaker, multiply_masks) {
+  MaskMaker* maskmaker;
+  maskmaker = new MaskMaker();
+
+  ASSERT_THROW(
+    maskmaker->multiply_masks("../test/testdata/mask1.txt",
+                              "../test/testdata/smaller_mask1.txt",
+                              "../test/testdata/multiplied_mask.txt"
+    ),
+    std::invalid_argument
+  );
+
+  ASSERT_THROW(
+    maskmaker->multiply_masks("../test/testdata/mask1.txt",
+                              "../test/testdata/smaller_mask2.txt",
+                              "../test/testdata/multiplied_mask.txt"
+    ),
+    std::invalid_argument
+  );
+
+  maskmaker->multiply_masks("../test/testdata/mask1.txt",
+                            "../test/testdata/mask2.txt",
+                            "../test/testdata/multiplied_mask.txt"
+  );
+
   delete maskmaker;
 }
 
