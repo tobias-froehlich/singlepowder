@@ -34,8 +34,8 @@ void MaskMaker::make_mask(std::string data_directory,
   mask->init(num_of_cols, num_of_rows);
 
   for(Action* action : list->get_actions()) {
-    for(int y = 1; y < num_of_rows-1; y++) {
-      for(int x = 1; x < num_of_cols-1; x++) {
+    for(int y = 0; y < num_of_rows; y++) {
+      for(int x = 0; x < num_of_cols; x++) {
         mask->set_pixel(
           x,
           y,
@@ -49,13 +49,7 @@ void MaskMaker::make_mask(std::string data_directory,
   float value;
   for(int y = 0; y < num_of_rows; y++) {
     for(int x = 0; x < num_of_cols; x++) {
-      value = mask->get_pixel(x, y);
-      if (value < cFloatDelta) {
-        value = 0.0;
-      }
-      else {
-        value = num_of_images / value * 100;
-      }
+      value = mask->get_pixel(x, y) / num_of_images;
       mask->set_pixel(x, y, value);
     }
   }
@@ -105,4 +99,37 @@ void MaskMaker::multiply_masks(std::string input_filename_1,
   delete mask1;
   delete mask2;
   delete mask3;
+}
+
+void MaskMaker::invert_mask(std::string input_filename,
+                            std::string output_filename) {
+  Mask* mask1;
+  Mask* mask2;
+  
+  mask1 = new Mask();
+  mask2 = new Mask();
+
+  mask1->read_file(input_filename);
+
+  int num_of_cols = mask1->get_num_of_cols();
+  int num_of_rows = mask1->get_num_of_rows();
+
+  mask2->init(num_of_cols, num_of_rows);
+
+  float value;
+
+  for ( int y=0; y<num_of_rows; y++) {
+    for ( int x=0; x<num_of_cols; x++) {      
+      value = mask1->get_pixel(x, y);
+      if (!(utils::float_equal(value, 0.0))) {
+        value = 1.0 / value;
+      }
+      mask2->set_pixel(x, y, value);
+    }
+  }
+
+  mask2->write_file(output_filename);
+
+  delete mask1;
+  delete mask2;
 }

@@ -12,6 +12,8 @@ class MaskMaker {
     void multiply_masks(std::string input_filename_1,
                         std::string input_filename_2,
                         std::string output_filename);
+    void invert_mask(std::string input_filename,
+                     std::string output_filename);
 };
 
 #endif

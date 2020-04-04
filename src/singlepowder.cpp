@@ -28,6 +28,18 @@ int main(int argc, char** argv) {
     maskmaker->make_mask(argv[2], argv[3], argv[4]);
     delete maskmaker;
   }
+  else if ((argc == 5) && (std::string(argv[1]) == "multiply_masks")) {
+    MaskMaker* maskmaker;
+    maskmaker = new MaskMaker();
+    maskmaker->multiply_masks(argv[2], argv[3], argv[4]);
+    delete maskmaker;
+  }
+  else if ((argc == 4) && (std::string(argv[1]) == "invert_mask")) {
+    MaskMaker* maskmaker;
+    maskmaker = new MaskMaker();
+    maskmaker->invert_mask(argv[2], argv[3]);
+    delete maskmaker;
+  }
   else {
     std::cout << argv[0] << " Version " << singlepowder_VERSION_MAJOR << "." << singlepowder_VERSION_MINOR << '\n';
     std::cout << "Usage: " << argv[0] << " number" << '\n';

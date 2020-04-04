@@ -46,25 +46,29 @@ make
 \end{verbatim}
 
 \subsection{Testing}
-In the directory \verb|singlepowder/build/test/|:\\
+In the directory \verb|singlepowder/bin/|:\\
 \begin{verbatim}
 ./Test
 \end{verbatim}
 
 \subsection{Installation}
-In the directory \verb|singlepowder/build/src/|:\\
+In the directory \verb|singlepowder/bin/|:\\
 \begin{verbatim}
 sudo cp singlepowder /usr/bin/
 \end{verbatim}
 
-\section{Running}
 
-singlepowder is run with one parameter, that is the name of the parameter file, i.e. parameters.txt:\\
+\section{Usage}
+
+\subsection{Integration}
+\subsubsection{Running}
+
+For integrating, singlepowder is run with the command \verb|integrate| and one further parameter, that is the name of the parameter file, i.e. parameters.txt:\\
 \begin{verbatim}
-singlepowder parameters.txt
+singlepowder integrate parameters.txt
 \end{verbatim}
 
-\section{Input files}
+\subsubsection{Input files}
 
 Figure \ref{fig:files} shows an example for input files. The directory \\
 \verb|~/singlepowder_test/TD015S001apex004/|\\
@@ -75,6 +79,8 @@ These files are listed in \verb|~/singlepowder_test/list.txt|. This list file co
 The program only needs the name of the parameter file \verb|parameters.txt| and gets all further information from this.
 
 The output is written to the file given in the line \verb|output_filename| of the parameter file. In the example, the output file is named \verb|output.txt|.
+
+The file name of the mask file is given by the parameter \verb|mask_filename|.
 
 Everything behind the character \verb|#| in the parameter file or the list file is a comment and ignored by the program. Empty lines or lines consisting of only a comment are allowed. The order of the parameters in the parameter file does not matter. Appart from comments, every line in the parameter file must consist of exactly two words. Thus, spaces in file names are not allowed.
 
@@ -103,6 +109,41 @@ The parameters in the parameter file are the following (all parameters must be g
 \includegraphics[width=15cm]{figs/files.pdf}
 \caption{\label{fig:files}Example for input files. In the directory \texttt{\~{}/singlepowder\_test/}, the command \texttt{singlepowder parameters.txt} runs the program.}
 \end{figure}
+
+\subsection{Creating a mask}
+
+The mask is created with the following steps:
+\begin{itemize}
+\item Averaging many detector images (preferrably without any reflections but just background).
+\item Inverting the values.
+\item Setting the value for corrupted pixels to zero.
+\end{itemize}
+
+Averaging is done using the command
+
+\begin{verbatim}
+singlepowder make_mask <data_directory> <list_filename> <output_filename>
+\end{verbatim}
+
+Iverting uses the command
+
+\begin{verbatim}
+singlepowder invert_mask <old_mask_filename> <new_mask_filename>
+\end{verbatim}
+
+For setting currupted pixels to zero, multiply with a mask with 0 for the corrupted pixels and 1 for the others:
+
+\begin{verbatim}
+singlepowder multiply_masks <mask_filename1> <mask_filename2> <output_mask_filename>
+\end{verbatim}
+
+Example: Assuming, the file \verb|corrupted.txt| contains a mask with corrupted pixels set to 0 and others to 1, the directory \verb|TD015S001apex004| contains the data files and \verb|list.txt| is the list file, the following commands must be executed:
+
+\begin{verbatim}
+singlepowder make_mask TD015S001apex004/ list.txt averaged.txt
+singlepowder invert_mask averaged.txt inverted.txt
+singlepowder multiply_mask corrupted.txt inverted.txt mask.txt
+\end{verbatim}
 
 \section{Geometry of the diffractometer}
 
@@ -194,7 +235,7 @@ This is the formula in Geometry::calculate\_powderangle().
 
 The algorithm loops over all pixels of all detector images. For each detector image, the detector distance and $ 2\theta $ are given in the list file. From the geometric parameters, the powder\_angle is calculated. The counts of this pixel are summed in the diffractogram at the according powder\_angle. The bin of the histogram is used, where the angle deviates maximally \verb|step|/2. If the powder\_angle of the pixel lies outside the interval $ [\texttt{angle\_min} - \texttt{step}/2, \texttt{angle\_max} + \texttt{step}/2] $, the counts are discarded. The counts are weighted by the weight given in the list file.
 
-Let $ i, j $ run over all pixels of all detector images for a fixed powder\_angle. The counts are $ c_i $ and the weights $ w_i $. The intensity at this angle is:
+Let $ i, j $ run over all pixels of all detector images for a fixed powder\_angle. The counts are $ c_i $ and the weights $ w_i $. A weight $ w_i $ is the product of the weight of the image (given in the list file) and the weight of the pixel (given in the mask file). The intensity at this angle is:
 
 \begin{align*}
 	I &= \frac{\sum\limits_{i = 1}^{n} w_i c_i}{\sum\limits_{j=1}^{n} w_j}
@@ -231,7 +272,7 @@ This is the formula in Diffractogram::calculate\_intensities\_and\_errors().
 
 \section{Structure of the program}
 
-The structure of the program is shown in Figure \ref{fig:class_diagram}.
+The structure of the program for integration is shown in Figure \ref{fig:class_diagram}. For the creation of the mask, the class MaskMaker is used.
 
 \begin{figure}
 	\includegraphics[width=15cm]{figs/class_diagram.pdf}

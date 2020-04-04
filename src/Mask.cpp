@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <string>
 #include <vector>
+#include "const.cpp"
 #include "utils.h"
 #include "Mask.h"
 
@@ -92,7 +93,7 @@ void Mask::write_file(std::string filename) {
   file << std::fixed;
   for(std::vector<float> row : zPixels) {
     for(float pixel : row) {
-      file << std::setprecision(2) << pixel << " ";
+      file << std::setprecision(cMaskFloatPrecision) << pixel << " ";
     }
     file << '\n';
   }
