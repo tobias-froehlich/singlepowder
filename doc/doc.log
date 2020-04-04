@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.8)  4 APR 2020 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.8)  4 APR 2020 12:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -609,117 +609,125 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 19.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 26.
+) (./doc.toc)
+\tf@toc=\write3
+\openout3 = `doc.toc'.
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 26.
-
-Underfull \hbox (badness 10000) in paragraph at lines 42--43
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 49--50
-
- []
-
-[1
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 27.
+ [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 43--44
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
 
-Overfull \hbox (18.49713pt too wide) in paragraph at lines 73--76
+Underfull \hbox (badness 10000) in paragraph at lines 56--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--68
+
+ []
+
+
+Overfull \hbox (18.49713pt too wide) in paragraph at lines 74--77
 []\OT1/cmr/m/n/12 contains the data files [][]\OT1/cmtt/m/n/12 TD015S001apex004
 _01_0001.out[]\OT1/cmr/m/n/12 , [][]\OT1/cmtt/m/n/12 TD015S001apex004_02_0001.o
 ut[]\OT1/cmr/m/n/12 ,
  []
 
-
-Overfull \vbox (7.00038pt too high) detected at line 93
- []
-
-
-Overfull \vbox (8.6998pt too high) detected at line 96
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--107
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--107
-
- []
-
 [2]
+Overfull \vbox (7.00038pt too high) detected at line 94
+ []
+
+
+Overfull \vbox (8.6998pt too high) detected at line 97
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--108
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--108
+
+ []
+
 <figs/files.pdf, id=15, 534.91182pt x 691.40198pt>
 File: figs/files.pdf Graphic file (type pdf)
 <use figs/files.pdf>
-Package pdftex.def Info: figs/files.pdf  used on input line 109.
+Package pdftex.def Info: figs/files.pdf  used on input line 110.
 (pdftex.def)             Requested size: 426.79134pt x 551.64534pt.
-
-Overfull \hbox (2.64427pt too wide) in paragraph at lines 126--126
+[3] [4 <./figs/files.pdf>]
+Overfull \hbox (2.64427pt too wide) in paragraph at lines 127--127
 []\OT1/cmtt/m/n/12 singlepowder make_mask <data_directory> <list_filename> <out
 put_filename>[] 
  []
 
-[3] [4 <./figs/files.pdf>]
-<figs/goniometer.pdf, id=38, 441.01773pt x 253.22952pt>
+
+Overfull \hbox (70.5693pt too wide) in paragraph at lines 139--139
+[]\OT1/cmtt/m/n/12 singlepowder multiply_masks <mask_filename1> <mask_filename2
+> <output_mask_filename>[] 
+ []
+
+[5]
+<figs/goniometer.pdf, id=41, 441.01773pt x 253.22952pt>
 File: figs/goniometer.pdf Graphic file (type pdf)
 <use figs/goniometer.pdf>
-Package pdftex.def Info: figs/goniometer.pdf  used on input line 157.
+Package pdftex.def Info: figs/goniometer.pdf  used on input line 173.
 (pdftex.def)             Requested size: 441.01665pt x 253.2289pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./figs/goniometer.pdf>] [6] [7]
-<figs/class_diagram.pdf, id=77, 597.50786pt x 472.31575pt>
+ [6 <./figs/goniometer.pdf>] [7] [8]
+<figs/class_diagram.pdf, id=80, 597.50786pt x 472.31575pt>
 File: figs/class_diagram.pdf Graphic file (type pdf)
 <use figs/class_diagram.pdf>
-Package pdftex.def Info: figs/class_diagram.pdf  used on input line 264.
+Package pdftex.def Info: figs/class_diagram.pdf  used on input line 280.
 (pdftex.def)             Requested size: 426.79134pt x 337.37167pt.
- [8] [9 <./figs/class_diagram.pdf>] (./doc.aux) ) 
+ [9] [10 <./figs/class_diagram.pdf>] (./doc.aux) ) 
 Here is how much of TeX's memory you used:
- 4719 strings out of 494871
- 74210 string characters out of 6178382
- 224478 words of memory out of 5000000
- 7971 multiletter control sequences out of 15000+600000
+ 4731 strings out of 494871
+ 74411 string characters out of 6178382
+ 221479 words of memory out of 5000000
+ 7980 multiletter control sequences out of 15000+600000
  16594 words of font info for 64 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 51i,21n,51p,8841b,294s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on doc.pdf (9 pages, 284034 bytes).
+ 51i,21n,51p,8841b,248s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on doc.pdf (10 pages, 286274 bytes).
 PDF statistics:
- 161 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
+ 164 PDF objects out of 1000 (max. 8388607)
+ 113 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -16,6 +16,7 @@
 \date{}
 \begin{document}
 \maketitle
+\tableofcontents
 
 \section{Installation (Linux)}
 
@@ -145,7 +146,8 @@ singlepowder invert_mask averaged.txt inverted.txt
 singlepowder multiply_mask corrupted.txt inverted.txt mask.txt
 \end{verbatim}
 
-\section{Geometry of the diffractometer}
+\section{Details}
+\subsection{Geometry of the diffractometer}
 
 All lengths are in $ \mathrm{mm} $ and all angles in $ \mathrm{deg} $.
 
@@ -231,7 +233,7 @@ From this, we can calculate the powder\_angle $ \varepsilon $ :
 
 This is the formula in Geometry::calculate\_powderangle().
 
-\section{Integration and error propagation}
+\subsection{Integration and error propagation}
 
 The algorithm loops over all pixels of all detector images. For each detector image, the detector distance and $ 2\theta $ are given in the list file. From the geometric parameters, the powder\_angle is calculated. The counts of this pixel are summed in the diffractogram at the according powder\_angle. The bin of the histogram is used, where the angle deviates maximally \verb|step|/2. If the powder\_angle of the pixel lies outside the interval $ [\texttt{angle\_min} - \texttt{step}/2, \texttt{angle\_max} + \texttt{step}/2] $, the counts are discarded. The counts are weighted by the weight given in the list file.
 
@@ -270,7 +272,7 @@ The intensity and its error is then calculated as follows:
 
 This is the formula in Diffractogram::calculate\_intensities\_and\_errors().
 
-\section{Structure of the program}
+\subsection{Structure of the program}
 
 The structure of the program for integration is shown in Figure \ref{fig:class_diagram}. For the creation of the mask, the class MaskMaker is used.
 

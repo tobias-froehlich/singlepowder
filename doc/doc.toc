@@ -1,0 +1,14 @@
+\contentsline {section}{\nonumberline Installation (Linux)}{1}
+\contentsline {subsection}{\nonumberline Requirements}{1}
+\contentsline {subsection}{\nonumberline Build}{2}
+\contentsline {subsection}{\nonumberline Testing}{2}
+\contentsline {subsection}{\nonumberline Installation}{2}
+\contentsline {section}{\nonumberline Usage}{2}
+\contentsline {subsection}{\nonumberline Integration}{2}
+\contentsline {subsubsection}{\nonumberline Running}{2}
+\contentsline {subsubsection}{\nonumberline Input files}{3}
+\contentsline {subsection}{\nonumberline Creating a mask}{3}
+\contentsline {section}{\nonumberline Details}{5}
+\contentsline {subsection}{\nonumberline Geometry of the diffractometer}{5}
+\contentsline {subsection}{\nonumberline Integration and error propagation}{8}
+\contentsline {subsection}{\nonumberline Structure of the program}{9}
